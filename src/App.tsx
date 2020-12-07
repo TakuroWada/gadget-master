@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "./assets/reset.css";
 import styles from "./assets/App.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { selectUser, login, logout } from "./features/userSlice";
