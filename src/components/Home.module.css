@@ -1,7 +1,0 @@
-.home {
-  flex: 1;
-  overflow-y: scroll;
-}
-.home::-webkit-scrollbar {
-  display: none;
-}
