@@ -1,0 +1,9 @@
+.hnav {
+  li {
+    display: inline;
+    & a {
+      color: #fafafa;
+      padding-right: 16px;
+    }
+  }
+}
