@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
         </li>
 
         <li>
-          <Link to="/setteing">設定</Link>
+          <Link to="/setting">設定</Link>
         </li>
         <li
           onClick={async () => {
