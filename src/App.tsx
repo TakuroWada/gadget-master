@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./assets/reset.css";
 import styles from "./assets/App.module.scss";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
