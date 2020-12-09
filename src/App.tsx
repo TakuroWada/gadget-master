@@ -3,7 +3,8 @@ import styles from "./assets/App.module.scss";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { selectUser, login, logout } from "./features/userSlice";
-import { auth } from "./firebase";
+import { auth, db } from "./firebase";
+import firebase from "firebase/app";
 import Home from "./components/Home";
 import List from "./components/List";
 import Register from "./components/Register";
@@ -26,6 +27,12 @@ const App: React.FC = () => {
             displayName: authUser.displayName,
           })
         );
+
+        db.collection("users").doc(authUser.uid).set({
+          userId: authUser.uid,
+          userName: authUser.displayName,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        });
       } else {
         dispatch(logout());
       }
