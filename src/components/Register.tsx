@@ -3,9 +3,7 @@ import styles from "../assets/Register.module.scss";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
 import { storage, db } from "../firebase";
-import { Button, IconButton } from "@material-ui/core";
 import firebase from "firebase/app";
-import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 
 const Register: React.FC = () => {
   const user = useSelector(selectUser);
@@ -101,23 +99,23 @@ const Register: React.FC = () => {
   return (
     <>
       <div className={styles.register}>
-        <form onSubmit={registerNewItem}>
-          <IconButton>
-            <label>
-              <AddAPhotoIcon
-              /*  className={
-                  gadgetIcon ? styles.tweet_addIconLoaded : styles.tweet_addIcon
-                } */
-              />
-              <input
-                className={styles.add_icon}
-                type="file"
-                onChange={onChangeIconHandler}
-              />
-            </label>
-          </IconButton>
+        <h1 className={styles.title}>ガジェット新規登録</h1>
+        <form className={styles.register_form} onSubmit={registerNewItem}>
+          <label>
+            <p
+              className={gadgetIcon ? styles.add_icon_loaded : styles.add_icon}
+            >
+              {gadgetIcon ? "選択済み" : "画像選択"}
+            </p>
+            <input
+              className={styles.icon}
+              type="file"
+              onChange={onChangeIconHandler}
+            />
+          </label>
 
           <input
+            className={styles.text_input}
             placeholder="ガジェット名"
             type="text"
             autoFocus
@@ -126,6 +124,7 @@ const Register: React.FC = () => {
           />
 
           <input
+            className={styles.text_input}
             placeholder="メーカー"
             type="text"
             autoFocus
@@ -134,6 +133,7 @@ const Register: React.FC = () => {
           />
 
           <input
+            className={styles.text_input}
             placeholder="カテゴリー"
             type="text"
             autoFocus
@@ -142,6 +142,7 @@ const Register: React.FC = () => {
           />
 
           <input
+            className={styles.text_input}
             placeholder="値段"
             type="text"
             autoFocus
@@ -150,6 +151,7 @@ const Register: React.FC = () => {
           />
 
           <input
+            className={styles.text_input}
             placeholder="購入日"
             type="date"
             autoFocus
@@ -158,6 +160,7 @@ const Register: React.FC = () => {
           />
 
           <input
+            className={styles.text_input}
             placeholder="所持状況"
             type="text"
             autoFocus
@@ -165,7 +168,8 @@ const Register: React.FC = () => {
             onChange={(e) => setPossessionStatus(e.target.value)}
           />
 
-          <Button
+          <button
+            className={styles.submit_button}
             type="submit"
             disabled={!gadgetName}
             /*   className={
@@ -173,7 +177,7 @@ const Register: React.FC = () => {
           } */
           >
             新規登録
-          </Button>
+          </button>
         </form>
       </div>
     </>
