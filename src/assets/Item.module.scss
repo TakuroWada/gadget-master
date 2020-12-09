@@ -1,7 +1,7 @@
 .item_card {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: start;
   background-color: #233f46;
   color: #fafafa;
   margin: 1.2rem auto 0 auto;
@@ -9,6 +9,12 @@
   max-width: 31rem;
   width: 100%;
   border-radius: 8px;
+}
+
+.item_flex {
+  display: flex;
+  justify-content: space-between;
+  align-self: start;
 }
 
 .item_icon {
@@ -44,4 +50,8 @@
   & p {
     margin-right: 0.8rem;
   }
+}
+
+.delete_icon {
+  width: 2.4rem;
 }

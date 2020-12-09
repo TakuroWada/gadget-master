@@ -1,5 +1,9 @@
 import React from "react";
 import styles from "../assets/Item.module.scss";
+import { useSelector } from "react-redux";
+import { selectUser } from "../features/userSlice";
+import { db } from "../firebase";
+import DeleteIcon from "../assets/images/delete.png";
 
 interface PROPS {
   itemId: string;
@@ -15,6 +19,26 @@ interface PROPS {
 }
 
 const Item: React.FC<PROPS> = (props) => {
+  const user = useSelector(selectUser);
+
+  //アイテム削除関数
+  const deleteItem = (itemId: string) => {
+    const deleteCheck = window.confirm("削除してよろしいですか？");
+    if (deleteCheck) {
+      db.collection("users")
+        .doc(user.uid)
+        .collection("items")
+        .doc(itemId)
+        .delete()
+        .then(() => {
+          alert("削除しました");
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    }
+  };
+
   return (
     <div className={styles.item_card}>
       <div className={styles.item_icon}>
@@ -22,7 +46,18 @@ const Item: React.FC<PROPS> = (props) => {
       </div>
 
       <div>
-        <p className={styles.maker_name}>{props.maker}</p>
+        <div className={styles.item_flex}>
+          <p className={styles.maker_name}>{props.maker}</p>
+          <img
+            className={styles.delete_icon}
+            src={DeleteIcon}
+            onClick={() => {
+              deleteItem(props.itemId);
+            }}
+            alt="削除"
+          />
+        </div>
+
         <p className={styles.item_name}>{props.gadgetname}</p>
 
         <div className={styles.item_diteils}>
