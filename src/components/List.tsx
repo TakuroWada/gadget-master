@@ -63,7 +63,7 @@ const List: React.FC = () => {
   }, [user.uid]);
   return (
     <div className={styles.list}>
-      <h1>ガジェット一覧</h1>
+      <h1 className={styles.title}>ガジェット一覧</h1>
       {items.map((item) => (
         <Item
           key={item.itemId}

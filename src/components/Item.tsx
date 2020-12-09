@@ -17,13 +17,15 @@ interface PROPS {
 const Item: React.FC<PROPS> = (props) => {
   return (
     <div className={styles.item_card}>
-      <img src={props.gadgetIcon} alt="icon" />
+      <div className={styles.item_icon}>
+        <img src={props.gadgetIcon} alt="icon" />
+      </div>
 
       <div>
-        <p>{props.maker}</p>
-        <p>{props.gadgetname}</p>
+        <p className={styles.maker_name}>{props.maker}</p>
+        <p className={styles.item_name}>{props.gadgetname}</p>
 
-        <div>
+        <div className={styles.item_diteils}>
           <p>¥{props.price}</p>
           <p>{props.possessionStatus}</p>
           <p>購入日:{props.purchaseDate}</p>
