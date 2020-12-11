@@ -24,15 +24,8 @@ interface PROPS {
 
 const Search: React.FC<PROPS> = (props) => {
   const user = useSelector(selectUser);
-  const [gadgetName, setGadgetName] = useState("");
-  const [maker, setMaker] = useState("");
-  const [category, setCategory] = useState("");
-  const [purchaseDate1, setPurchaseDate1] = useState("");
-  const [purchaseDate2, setPurchaseDate2] = useState("");
-  const [priceMin, setPriceMin] = useState("");
-  const [priceMax, setPriceMax] = useState("");
-  const [possessionStatus, setPossessionStatus] = useState("");
-  const [openSearchForm, setOpenSearchForm] = useState(false);
+  const [searchType, setSearchType] = useState("nochoice");
+  const [searchWord, setSearchWord] = useState("");
 
   const itemSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,7 +34,7 @@ const Search: React.FC<PROPS> = (props) => {
       .doc(user.uid)
       .collection("items")
       .orderBy("purchaseDate", "desc")
-      .where("category", "==", "ノートpc")
+      .where(searchType, "==", searchWord)
       .onSnapshot((snapshot) =>
         props.setSearchItems(
           snapshot.docs.map((doc) => ({
@@ -63,105 +56,40 @@ const Search: React.FC<PROPS> = (props) => {
   };
 
   return (
-    <div>
-      <div>
-        <h2 className={styles.title}>条件検索</h2>
-        <form className={styles.register_form} onSubmit={itemSearch}>
-          <input
-            className={styles.text_input}
-            placeholder="ガジェット名"
-            type="text"
-            autoFocus
-            value={gadgetName}
-            onChange={(e) => setGadgetName(e.target.value)}
-          />
+    <div className={styles.search_section}>
+      <h2 className={styles.title}>検索</h2>
+      <form className={styles.search_form} onSubmit={itemSearch}>
+        <h3 className={styles.sub_title}>検索項目を選択してキーワードを入力</h3>
+        <select
+          className={styles.select_box}
+          onChange={(e) => setSearchType(e.target.value)}
+        >
+          <option value="nochoice">項目を選択 ▼</option>
+          <option value="gadgetname">ガジェット名</option>
+          <option value="maker">メーカー</option>
+          <option value="category">カテゴリー</option>
+        </select>
+        <input
+          className={styles.text_input}
+          placeholder="キーワードを入力"
+          type="text"
+          autoFocus
+          value={searchWord}
+          onChange={(e) => setSearchWord(e.target.value)}
+        />
 
-          <p
-            className={styles.post_commentIcon}
-            onClick={() => setOpenSearchForm(!openSearchForm)}
-          >
-            {openSearchForm ? "▲ 閉じる" : "▼ 絞り込み条件追加"}
-          </p>
-
-          {openSearchForm && (
-            <>
-              <input
-                className={styles.text_input}
-                placeholder="メーカー"
-                type="text"
-                autoFocus
-                value={maker}
-                onChange={(e) => setMaker(e.target.value)}
-              />
-
-              <input
-                className={styles.text_input}
-                placeholder="カテゴリー"
-                type="text"
-                autoFocus
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-              />
-
-              <input
-                className={styles.text_input}
-                placeholder="値段下限"
-                type="text"
-                autoFocus
-                value={priceMin}
-                onChange={(e) => setPriceMin(e.target.value)}
-              />
-
-              <input
-                className={styles.text_input}
-                placeholder="値段上限"
-                type="text"
-                autoFocus
-                value={priceMax}
-                onChange={(e) => setPriceMax(e.target.value)}
-              />
-
-              <input
-                className={styles.text_input}
-                placeholder="購入日1"
-                type="date"
-                autoFocus
-                value={purchaseDate1}
-                onChange={(e) => setPurchaseDate1(e.target.value)}
-              />
-
-              <input
-                className={styles.text_input}
-                placeholder="購入2"
-                type="date"
-                autoFocus
-                value={purchaseDate2}
-                onChange={(e) => setPurchaseDate2(e.target.value)}
-              />
-
-              <input
-                className={styles.text_input}
-                placeholder="所持状況"
-                type="text"
-                autoFocus
-                value={possessionStatus}
-                onChange={(e) => setPossessionStatus(e.target.value)}
-              />
-            </>
-          )}
-
-          <button
-            className={styles.submit_button}
-            type="submit"
-            disabled={!gadgetName}
-            /*   className={
-            gadgetName ? styles.tweet_sendBtn : styles.tweet_sendDisableBtn
-          } */
-          >
-            検索
-          </button>
-        </form>
-      </div>
+        <button
+          type="submit"
+          disabled={!searchWord && !searchType}
+          className={
+            searchWord && searchType !== "nochoice"
+              ? styles.submit_button
+              : styles.submit_button_false
+          }
+        >
+          検索
+        </button>
+      </form>
     </div>
   );
 };

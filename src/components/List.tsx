@@ -93,6 +93,7 @@ const List: React.FC = memo(() => {
       <Search setSearchItems={setSearchItems} setSearchFlg={setSearchFlg} />
       {searchFlg ? (
         <p
+          className={styles.allitem_link}
           onClick={() => {
             setSearchFlg(false);
           }}
