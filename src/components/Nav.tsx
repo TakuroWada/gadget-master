@@ -2,11 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../firebase";
 import styles from "../assets/Nav.module.scss";
+import SimpleMenu from "./SimpleMenu";
 
 const Navbar: React.FC = () => {
   return (
     <div className={styles.hnav}>
-      <ul>
+      <SimpleMenu />
+      {/* <ul>
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -31,7 +33,7 @@ const Navbar: React.FC = () => {
         >
           <Link to="/">ログアウト</Link>
         </li>
-      </ul>
+      </ul> */}
     </div>
   );
 };
