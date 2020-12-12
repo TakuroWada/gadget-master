@@ -129,20 +129,31 @@
     white-space: normal;
   }
 }
+.modal_button_area {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2.4rem;
+}
 
 .submit_button {
-  display: block;
   background-color: #fafafa;
   border-radius: 8px;
-  color: #233f46;
+  color: #19a0b9;
+  font-weight: bold;
   padding: 0.8rem 1.6rem;
-  margin: 2.4rem auto 0 auto;
   font-size: 1.6rem;
   cursor: pointer;
+  min-width: 10rem;
+  text-align: center;
 
   &:hover {
-    background-color: #ccc;
+    background-color: #eee;
   }
+}
+
+.delete_button {
+  @extend .submit_button;
+  color: #db576b;
 }
 
 .modal_close_btn {

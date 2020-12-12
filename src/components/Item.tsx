@@ -143,14 +143,6 @@ const Item: React.FC<PROPS> = (props) => {
       <div>
         <div className={styles.item_flex}>
           <p className={styles.maker_name}>{props.maker}</p>
-          <img
-            className={styles.delete_icon}
-            src={DeleteIcon}
-            onClick={() => {
-              deleteItem(props.itemId);
-            }}
-            alt="削除"
-          />
         </div>
 
         <p className={styles.item_name}>{props.gadgetname}</p>
@@ -248,9 +240,20 @@ const Item: React.FC<PROPS> = (props) => {
             />
           </div>
 
-          <button className={styles.submit_button} type="submit">
-            変更保存
-          </button>
+          <div className={styles.modal_button_area}>
+            <button className={styles.submit_button} type="submit">
+              変更保存
+            </button>
+            <button
+              type="button"
+              className={styles.delete_button}
+              onClick={() => {
+                deleteItem(props.itemId);
+              }}
+            >
+              削除
+            </button>
+          </div>
         </form>
 
         <button
