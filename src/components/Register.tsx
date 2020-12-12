@@ -14,6 +14,7 @@ const Register: React.FC = () => {
   const [purchaseDate, setPurchaseDate] = useState("");
   const [price, setPrice] = useState("");
   const [possessionStatus, setPossessionStatus] = useState("");
+  const [details, setDetails] = useState("");
 
   //アイコン変更時の関数
   const onChangeIconHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,6 +68,7 @@ const Register: React.FC = () => {
                   purchaseDate: purchaseDate,
                   possessionStatus: possessionStatus,
                   username: user.displayName,
+                  details: details,
                   timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                 });
             });
@@ -83,6 +85,7 @@ const Register: React.FC = () => {
         purchaseDate: purchaseDate,
         possessionStatus: possessionStatus,
         username: user.displayName,
+        details: details,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       });
     }
@@ -94,6 +97,7 @@ const Register: React.FC = () => {
     setPurchaseDate("");
     setPrice("");
     setPossessionStatus("");
+    setDetails("");
   };
 
   return (
@@ -166,6 +170,15 @@ const Register: React.FC = () => {
             autoFocus
             value={possessionStatus}
             onChange={(e) => setPossessionStatus(e.target.value)}
+          />
+
+          <input
+            className={styles.text_input}
+            placeholder="詳細"
+            type="text"
+            autoFocus
+            value={details}
+            onChange={(e) => setDetails(e.target.value)}
           />
 
           <button

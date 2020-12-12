@@ -15,6 +15,7 @@ interface PROPS {
   purchaseDate: string;
   possessionStatus: string;
   username: string;
+  details: string;
   timestamp: any;
 }
 
