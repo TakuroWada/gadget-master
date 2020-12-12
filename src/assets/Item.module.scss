@@ -2,19 +2,13 @@
   display: flex;
   justify-content: space-around;
   align-items: start;
-  background-color: #233f46;
+  background-color: #1d3443;
   color: #fafafa;
   margin: 1.2rem auto 0 auto;
   padding: 1.6rem 0.4rem;
   max-width: 31rem;
   width: 100%;
   border-radius: 8px;
-}
-
-.item_flex {
-  display: flex;
-  justify-content: space-between;
-  align-self: start;
 }
 
 .item_icon {
@@ -24,6 +18,7 @@
   border-radius: 50%;
   text-align: center;
   line-height: 3.2rem;
+  align-self: center;
 
   & img {
     display: inline-block;
@@ -31,29 +26,32 @@
     height: 2.4rem;
   }
 }
-
-.maker_name {
-  font-size: 1.4rem;
+.item_text_area {
+  & ul {
+    margin-top: 0.8rem;
+  }
+  & li {
+    padding-top: 0.4rem;
+  }
 }
 
 .item_name {
   font-size: 1.8rem;
   font-weight: bold;
+  border-bottom: 1px solid #fafafa;
+  width: 14rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
-.item_diteils {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.4rem;
-  margin-top: 0.8rem;
-  & p {
-    margin-right: 0.8rem;
-  }
-}
-
-.delete_icon {
-  width: 2.4rem;
+.details_button {
+  background-color: #19a0b9;
+  color: #fafafa;
+  font-weight: bold;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.8rem;
+  align-self: flex-end;
 }
 
 .modal {

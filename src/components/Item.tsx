@@ -140,21 +140,18 @@ const Item: React.FC<PROPS> = (props) => {
         <img src={props.gadgetIcon} alt="icon" />
       </div>
 
-      <div>
-        <div className={styles.item_flex}>
-          <p className={styles.maker_name}>{props.maker}</p>
-        </div>
-
-        <p className={styles.item_name}>{props.gadgetname}</p>
-
-        <div className={styles.item_diteils}>
-          <p>¥{props.price}</p>
-          <p>{props.possessionStatus}</p>
-          <p>購入日:{props.purchaseDate}</p>
-        </div>
+      <div className={styles.item_text_area}>
+        <h3 className={styles.item_name}>{props.gadgetname}</h3>
+        <ul>
+          <li>{props.maker}</li>
+          <li>¥{props.price}</li>
+          <li>{props.possessionStatus}</li>
+          <li>購入日:{props.purchaseDate}</li>
+        </ul>
       </div>
 
       <button
+        className={styles.details_button}
         type="button"
         onClick={() => {
           setOpenModal(true);
