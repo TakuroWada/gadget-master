@@ -14,6 +14,7 @@ interface ITEM {
   purchaseDate: string;
   possessionStatus: string;
   username: string;
+  details: string;
   timestamp: any;
 }
 
@@ -47,6 +48,7 @@ const Search: React.FC<PROPS> = (props) => {
             purchaseDate: doc.data().purchaseDate,
             possessionStatus: doc.data().possessionStatus,
             username: doc.data().username,
+            details: doc.data().details,
             timestamp: doc.data().timestamp,
           }))
         )

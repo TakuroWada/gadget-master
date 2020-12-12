@@ -16,6 +16,7 @@ interface ITEM {
   purchaseDate: string;
   possessionStatus: string;
   username: string;
+  details: string;
   timestamp: any;
 }
 
@@ -33,6 +34,7 @@ const List: React.FC = memo(() => {
       purchaseDate: "",
       possessionStatus: "",
       username: "",
+      details: "",
       timestamp: null,
     },
   ]);
@@ -48,6 +50,7 @@ const List: React.FC = memo(() => {
       purchaseDate: "",
       possessionStatus: "",
       username: "",
+      details: "",
       timestamp: null,
     },
   ]);
@@ -70,6 +73,7 @@ const List: React.FC = memo(() => {
             purchaseDate: doc.data().purchaseDate,
             possessionStatus: doc.data().possessionStatus,
             username: doc.data().username,
+            details: doc.data().details,
             timestamp: doc.data().timestamp,
           }))
         )
@@ -115,6 +119,7 @@ const List: React.FC = memo(() => {
           purchaseDate={item.purchaseDate}
           possessionStatus={item.possessionStatus}
           username={item.username}
+          details={item.details}
           timestamp={item.timestamp}
         />
       ))}
