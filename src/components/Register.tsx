@@ -172,10 +172,9 @@ const Register: React.FC = () => {
             onChange={(e) => setPossessionStatus(e.target.value)}
           />
 
-          <input
+          <textarea
             className={styles.text_input}
             placeholder="詳細"
-            type="text"
             autoFocus
             value={details}
             onChange={(e) => setDetails(e.target.value)}
