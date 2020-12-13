@@ -59,8 +59,8 @@ const Search: React.FC<PROPS> = (props) => {
 
   return (
     <div className={styles.search_section}>
-      <h2 className={styles.title}>検索</h2>
       <form className={styles.search_form} onSubmit={itemSearch}>
+        <h2 className={styles.title}>検索</h2>
         <h3 className={styles.sub_title}>検索項目を選択してキーワードを入力</h3>
         <select
           className={styles.select_box}

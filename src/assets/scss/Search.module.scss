@@ -1,12 +1,20 @@
+@import "./breakpoint";
+
 .search_section {
+  max-width: 96rem;
   padding: 1.6rem 0;
-  margin-top: 1.6rem;
+  margin: 1.6rem auto 0 auto;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
 }
 
 .search_form {
-  margin-top: 0.8rem;
+  max-width: 30rem;
+  width: 100%;
+  margin: 0.8rem auto 0 auto;
+  @include pc {
+    max-width: 64rem;
+  }
 }
 
 .title {
@@ -34,7 +42,12 @@
   width: 100%;
   text-align: left;
   padding: 0.8rem;
-  margin-top: 1.6rem;
+  margin-top: 0.8rem;
+
+  @include pc {
+    display: inline;
+    margin-left: 2.4rem;
+  }
 }
 
 .submit_button {
@@ -42,13 +55,13 @@
   width: 16rem;
   text-align: center;
   padding: 0.8rem;
-  background-color: #047e3f;
+  background-color: #10262c;
   border-radius: 8px;
   color: #fafafa;
   margin: 1.6rem auto 0 auto;
 
   &:hover {
-    background-color: #01a751;
+    background-color: #19a0b9;
   }
 }
 

@@ -184,57 +184,61 @@ const Item: React.FC<PROPS> = (props) => {
             onChange={(e) => setGadgetName(e.target.value)}
           />
 
-          <div className={styles.modal_input}>
-            <label>メーカー</label>
-            <input
-              type="text"
-              value={maker}
-              onChange={(e) => setMaker(e.target.value)}
-            />
-          </div>
+          <div className={styles.modeal_flexbox}>
+            <div className={styles.modal_input_area}>
+              <div className={styles.modal_input}>
+                <label>メーカー</label>
+                <input
+                  type="text"
+                  value={maker}
+                  onChange={(e) => setMaker(e.target.value)}
+                />
+              </div>
 
-          <div className={styles.modal_input}>
-            <label>カテゴリー</label>
-            <input
-              type="text"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-            />
-          </div>
+              <div className={styles.modal_input}>
+                <label>カテゴリー</label>
+                <input
+                  type="text"
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                />
+              </div>
 
-          <div className={styles.modal_input}>
-            <label>値段</label>
-            <input
-              type="text"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-            />
-          </div>
+              <div className={styles.modal_input}>
+                <label>値段</label>
+                <input
+                  type="text"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                />
+              </div>
 
-          <div className={styles.modal_input}>
-            <label>所持状況</label>
-            <input
-              type="text"
-              value={possessionStatus}
-              onChange={(e) => setPossessionStatus(e.target.value)}
-            />
-          </div>
+              <div className={styles.modal_input}>
+                <label>所持状況</label>
+                <input
+                  type="text"
+                  value={possessionStatus}
+                  onChange={(e) => setPossessionStatus(e.target.value)}
+                />
+              </div>
 
-          <div className={styles.modal_input}>
-            <label>購入日</label>
-            <input
-              type="date"
-              value={purchaseDate}
-              onChange={(e) => setPurchaseDate(e.target.value)}
-            />
-          </div>
+              <div className={styles.modal_input}>
+                <label>購入日</label>
+                <input
+                  type="date"
+                  value={purchaseDate}
+                  onChange={(e) => setPurchaseDate(e.target.value)}
+                />
+              </div>
+            </div>
 
-          <div className={styles.modal_details}>
-            <label>詳細</label>
-            <textarea
-              value={details}
-              onChange={(e) => setDetails(e.target.value)}
-            />
+            <div className={styles.modal_details}>
+              <label>詳細</label>
+              <textarea
+                value={details}
+                onChange={(e) => setDetails(e.target.value)}
+              />
+            </div>
           </div>
 
           <div className={styles.modal_button_area}>
