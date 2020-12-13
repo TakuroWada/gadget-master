@@ -1,12 +1,18 @@
+@import "./breakpoint";
+
 .home {
   width: 100%;
   background-color: #edeeef;
 }
 
 .status_section {
-  padding: 12rem 0 4rem 0;
+  padding: 12rem 0 8rem 0;
   background-color: #1d3443;
   width: 100%;
+
+  @include tab {
+    padding: 12rem 0 4.8rem 0;
+  }
 }
 
 .title {
@@ -31,6 +37,10 @@
     right: 0;
     left: 16px;
   }
+
+  @include tab {
+    font-size: 2.4rem;
+  }
 }
 
 .status_box {
@@ -42,6 +52,10 @@
   width: 100%;
   margin: 0.4rem auto 0 auto;
   color: #fafafa;
+
+  @include tab {
+    max-width: 40rem;
+  }
 }
 
 .avatar_area {
@@ -52,6 +66,9 @@
   & p {
     margin-top: 0.8rem;
     text-align: center;
+    @include tab {
+      font-size: 2rem;
+    }
   }
 }
 
@@ -68,15 +85,27 @@
     & .sub_title {
       font-size: 1.4rem;
       margin-top: 2.4rem;
+      @include tab {
+        font-size: 1.6rem;
+        margin-top: 3.2rem;
+      }
     }
     & p {
       color: #dafcfc;
+      @include tab {
+        margin-top: 0.8rem;
+        font-size: 2.4rem;
+      }
     }
   }
 }
 
 .menu_section {
-  margin-top: 4rem;
+  margin-top: 6.4rem;
+
+  @include tab {
+    margin-top: 4rem;
+  }
 }
 
 .menu_title {
@@ -101,6 +130,10 @@
     right: 0;
     left: 16px;
   }
+
+  @include tab {
+    font-size: 2.4rem;
+  }
 }
 
 .link_area {
@@ -110,12 +143,15 @@
   align-items: center;
   margin: 1.6rem auto 0 auto;
   max-width: 48rem;
+  @include tab {
+    max-width: 72rem;
+  }
 
   & a {
     display: flex;
     align-items: center;
     width: 45%;
-    height: 9.6rem;
+    height: 12rem;
     background-color: #10262c;
     margin: 0.8rem 0.8rem 0 0;
     text-align: center;
@@ -129,6 +165,11 @@
     &:hover {
       background-color: #19a0b9;
       transition: all 0.3s;
+    }
+
+    @include tab {
+      font-size: 2rem;
+      margin: 0.8rem;
     }
   }
 }
