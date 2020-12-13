@@ -1,5 +1,5 @@
 import React, { useState, useEffect, memo } from "react";
-import styles from "../assets/List.module.scss";
+import styles from "../assets/scss/List.module.scss";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
 import { db } from "../firebase";

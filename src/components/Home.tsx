@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
 import { db } from "../firebase";
-import styles from "../assets/Home.module.scss";
+import styles from "../assets/scss/Home.module.scss";
 import { Avatar } from "@material-ui/core";
 import { Link } from "react-router-dom";
 

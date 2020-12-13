@@ -4,7 +4,7 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
 import { auth } from "../firebase";
-import styles from "../assets/SimpleMenu.module.scss";
+import styles from "../assets/scss/SimpleMenu.module.scss";
 
 export default function SimpleMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);

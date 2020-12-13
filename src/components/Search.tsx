@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../assets/Search.module.scss";
+import styles from "../assets/scss/Search.module.scss";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
 import { db } from "../firebase";
