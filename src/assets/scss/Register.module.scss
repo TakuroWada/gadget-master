@@ -1,5 +1,7 @@
+@import "./breakpoint";
+
 .register {
-  padding: 4rem 0.8rem;
+  padding: 10rem 0.8rem;
   background-color: #edeeef;
 }
 
@@ -7,12 +9,15 @@
   text-align: center;
   font-weight: bold;
   font-size: 1.8rem;
-  color: #047e3f;
+  color: #19a0b9;
 }
 
 .register_form {
   text-align: center;
-  margin-top: 3.2rem;
+  margin: 3.2rem auto 0 auto;
+  @include pc {
+    max-width: 72rem;
+  }
 }
 
 .add_icon_loaded {
@@ -25,10 +30,10 @@
   height: 8rem;
   border-radius: 50%;
   border: solid 2px #333;
-  background-color: #eafaea;
+  background-color: #fafafa;
 
   &:hover {
-    background-color: #d8fcd8;
+    background-color: #caf7f8;
   }
 }
 
@@ -41,11 +46,11 @@
   width: 8rem;
   height: 8rem;
   border-radius: 50%;
-  border: solid 2px #047e3f;
-  background-color: #eafaea;
+  background-color: #fafafa;
+  border: solid 2px #19a0b9;
 
   &:hover {
-    background-color: #d8fcd8;
+    background-color: #caf7f8;
   }
 }
 
@@ -53,25 +58,71 @@
   display: none;
 }
 
+.input_area {
+  margin-top: 1, 6rem;
+
+  @include pc {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.input_item {
+  text-align: left;
+  max-width: 30rem;
+  width: 100%;
+  margin: 2.4rem auto 0 auto;
+  @include pc {
+    width: 40%;
+  }
+}
+
+.input_details {
+  text-align: left;
+  max-width: 30rem;
+  margin: 2.4rem auto 0 auto;
+  @include pc {
+    max-width: 64rem;
+  }
+}
+
 .text_input {
+  display: block;
   border-radius: 8px;
   background-color: #fafafa;
-  max-width: 30rem;
   width: 100%;
   text-align: left;
   padding: 0.8rem;
-  margin-top: 3.2rem;
+  margin-top: 0.8rem;
+}
+
+.text_area {
+  display: block;
+  border-radius: 8px;
+  background-color: #fafafa;
+  width: 100%;
+  text-align: left;
+  padding: 0.8rem;
+  margin: 0.8rem auto 0 auto;
+
+  @include pc {
+    width: 64rem;
+    min-height: 12rem;
+  }
 }
 
 .submit_button {
+  display: block;
+  width: 24rem;
   font-size: 1.8rem;
   padding: 1.6rem;
-  background-color: #047e3f;
+  background-color: #10262c;
   border-radius: 8px;
-  margin-top: 3.2rem;
+  margin: 3.2rem auto 0 auto;
   color: #fafafa;
 
   &:hover {
-    background-color: #01a751;
+    background-color: #19a0b9;
+    transition: all 0.3s;
   }
 }
