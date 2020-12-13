@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
-import styles from "../assets/Header.module.scss";
+import styles from "../assets/scss/Header.module.scss";
 import Nav from "./Nav";
 import { Avatar } from "@material-ui/core";
 

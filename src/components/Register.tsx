@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../assets/Register.module.scss";
+import styles from "../assets/scss/Register.module.scss";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
 import { storage, db } from "../firebase";
@@ -118,67 +118,90 @@ const Register: React.FC = () => {
             />
           </label>
 
-          <input
-            className={styles.text_input}
-            placeholder="ガジェット名"
-            type="text"
-            autoFocus
-            value={gadgetName}
-            onChange={(e) => setGadgetName(e.target.value)}
-          />
+          <div className={styles.input_area}>
+            <div className={styles.input_item}>
+              <label>ガジェット名</label>
+              <input
+                className={styles.text_input}
+                placeholder="ガジェット名"
+                type="text"
+                autoFocus
+                value={gadgetName}
+                onChange={(e) => setGadgetName(e.target.value)}
+              />
+            </div>
 
-          <input
-            className={styles.text_input}
-            placeholder="メーカー"
-            type="text"
-            autoFocus
-            value={maker}
-            onChange={(e) => setMaker(e.target.value)}
-          />
+            <div className={styles.input_item}>
+              <label>メーカー</label>
+              <input
+                className={styles.text_input}
+                placeholder="メーカー"
+                type="text"
+                autoFocus
+                value={maker}
+                onChange={(e) => setMaker(e.target.value)}
+              />
+            </div>
 
-          <input
-            className={styles.text_input}
-            placeholder="カテゴリー"
-            type="text"
-            autoFocus
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          />
+            <div className={styles.input_item}>
+              <label>カテゴリー</label>
+              <input
+                className={styles.text_input}
+                placeholder="カテゴリー"
+                type="text"
+                autoFocus
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+              />
+            </div>
 
-          <input
-            className={styles.text_input}
-            placeholder="値段"
-            type="text"
-            autoFocus
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-          />
+            <div className={styles.input_item}>
+              <label>値段</label>
+              <input
+                className={styles.text_input}
+                placeholder="値段"
+                type="text"
+                autoFocus
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+              />
+            </div>
 
-          <input
-            className={styles.text_input}
-            placeholder="購入日"
-            type="date"
-            autoFocus
-            value={purchaseDate}
-            onChange={(e) => setPurchaseDate(e.target.value)}
-          />
+            <div className={styles.input_item}>
+              <label>購入日</label>
+              <input
+                className={styles.text_input}
+                placeholder="購入日"
+                type="date"
+                autoFocus
+                value={purchaseDate}
+                onChange={(e) => setPurchaseDate(e.target.value)}
+              />
+            </div>
 
-          <input
-            className={styles.text_input}
-            placeholder="所持状況"
-            type="text"
-            autoFocus
-            value={possessionStatus}
-            onChange={(e) => setPossessionStatus(e.target.value)}
-          />
+            <div className={styles.input_item}>
+              <label>所持状況</label>
+              <input
+                className={styles.text_input}
+                placeholder="所持状況"
+                type="text"
+                autoFocus
+                value={possessionStatus}
+                onChange={(e) => setPossessionStatus(e.target.value)}
+              />
+            </div>
+          </div>
 
-          <textarea
-            className={styles.text_input}
-            placeholder="詳細"
-            autoFocus
-            value={details}
-            onChange={(e) => setDetails(e.target.value)}
-          />
+          <div className={styles.input_details}>
+            <label>詳細</label>
+            <textarea
+              className={styles.text_area}
+              placeholder="詳細"
+              autoFocus
+              value={details}
+              onChange={(e) => setDetails(e.target.value)}
+            />
+          </div>
 
           <button
             className={styles.submit_button}

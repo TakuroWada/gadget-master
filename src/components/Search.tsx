@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../assets/Search.module.scss";
+import styles from "../assets/scss/Search.module.scss";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
 import { db } from "../firebase";
@@ -59,8 +59,8 @@ const Search: React.FC<PROPS> = (props) => {
 
   return (
     <div className={styles.search_section}>
-      <h2 className={styles.title}>検索</h2>
       <form className={styles.search_form} onSubmit={itemSearch}>
+        <h2 className={styles.title}>検索</h2>
         <h3 className={styles.sub_title}>検索項目を選択してキーワードを入力</h3>
         <select
           className={styles.select_box}

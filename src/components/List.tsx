@@ -1,5 +1,5 @@
 import React, { useState, useEffect, memo } from "react";
-import styles from "../assets/List.module.scss";
+import styles from "../assets/scss/List.module.scss";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
 import { db } from "../firebase";
@@ -107,22 +107,24 @@ const List: React.FC = memo(() => {
       ) : (
         ""
       )}
-      {viewItems.map((item) => (
-        <Item
-          key={item.itemId}
-          itemId={item.itemId}
-          gadgetIcon={item.gadgetIcon}
-          gadgetname={item.gadgetname}
-          maker={item.maker}
-          category={item.category}
-          price={item.price}
-          purchaseDate={item.purchaseDate}
-          possessionStatus={item.possessionStatus}
-          username={item.username}
-          details={item.details}
-          timestamp={item.timestamp}
-        />
-      ))}
+      <div className={styles.item_area}>
+        {viewItems.map((item) => (
+          <Item
+            key={item.itemId}
+            itemId={item.itemId}
+            gadgetIcon={item.gadgetIcon}
+            gadgetname={item.gadgetname}
+            maker={item.maker}
+            category={item.category}
+            price={item.price}
+            purchaseDate={item.purchaseDate}
+            possessionStatus={item.possessionStatus}
+            username={item.username}
+            details={item.details}
+            timestamp={item.timestamp}
+          />
+        ))}
+      </div>
     </div>
   );
 });

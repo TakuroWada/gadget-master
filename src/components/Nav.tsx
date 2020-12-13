@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../firebase";
-import styles from "../assets/Nav.module.scss";
+import styles from "../assets/scss/Nav.module.scss";
 import SimpleMenu from "./SimpleMenu";
 
 const Navbar: React.FC = () => {
