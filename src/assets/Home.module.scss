@@ -1,28 +1,46 @@
 .home {
-  max-width: 48rem;
+  width: 100%;
+  background-color: #edeeef;
 }
 
 .status_section {
-  margin-top: 2.4rem;
+  padding: 12rem 0 4rem 0;
+  background-color: #1d3443;
+  width: 100%;
 }
 
 .title {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: bold;
   text-align: center;
+  color: #fafafa;
+
+  &::before {
+    position: relative;
+    top: 6px;
+    right: 16px;
+    content: "";
+    display: inline-block;
+    width: 1.6rem;
+    height: 2.4rem;
+    background: url(./images/ico_iphone1_6.gif) no-repeat;
+    background-size: contain;
+  }
+  &::after {
+    @extend .title::before;
+    right: 0;
+    left: 16px;
+  }
 }
 
 .status_box {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #031225;
-  padding: 3.2rem 0.8rem;
+  padding-top: 1.6rem;
   max-width: 30rem;
   width: 100%;
-  margin: 0.8rem auto 0 auto;
-  border-radius: 8px;
-  border: 4px double #89fcf3;
+  margin: 0.4rem auto 0 auto;
   color: #fafafa;
 }
 
@@ -37,21 +55,52 @@
   }
 }
 
+.avatar_img {
+  width: 8rem !important;
+  height: 8rem !important;
+}
+
 .text_area {
   & .text_item {
     margin-top: 1.6rem;
+    font-size: 2rem;
 
     & .sub_title {
       font-size: 1.4rem;
+      margin-top: 2.4rem;
     }
     & p {
-      color: skyblue;
+      color: #dafcfc;
     }
   }
 }
 
 .menu_section {
-  margin-top: 2.4rem;
+  margin-top: 4rem;
+}
+
+.menu_title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #01318b;
+
+  &::before {
+    position: relative;
+    top: 8px;
+    right: 16px;
+    content: "";
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    background: url(./images/ico_notepc1b_8.gif) no-repeat;
+    background-size: contain;
+  }
+  &::after {
+    @extend .menu_title::before;
+    right: 0;
+    left: 16px;
+  }
 }
 
 .link_area {
@@ -59,18 +108,27 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin: 1.6rem auto 0 auto;
+  max-width: 48rem;
 
   & a {
     display: flex;
     align-items: center;
     width: 45%;
     height: 9.6rem;
-    background-color: #10101b;
+    background-color: #10262c;
     margin: 0.8rem 0.8rem 0 0;
     text-align: center;
+    border-radius: 8px;
     color: #fafafa;
+    transition: all 0.3s;
+    position: relative;
     & span {
       flex: 1;
+    }
+    &:hover {
+      background-color: #19a0b9;
+      transition: all 0.3s;
     }
   }
 }

@@ -11,10 +11,10 @@ const Home: React.FC = () => {
   return (
     <div className={styles.home}>
       <section className={styles.status_section}>
-        <h2 className={styles.title}>現在のステータス</h2>
+        <h2 className={styles.title}>ステータス</h2>
         <div className={styles.status_box}>
           <div className={styles.avatar_area}>
-            <Avatar src={user.photoUrl} />
+            <Avatar className={styles.avatar_img} src={user.photoUrl} />
             <p>{user.displayName}</p>
           </div>
 
@@ -37,7 +37,7 @@ const Home: React.FC = () => {
         </div>
       </section>
       <section className={styles.menu_section}>
-        <h2 className={styles.title}>Menu</h2>
+        <h2 className={styles.menu_title}>Menu</h2>
         <div className={styles.link_area}>
           <Link to="/list">
             <br />
