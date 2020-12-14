@@ -57,11 +57,11 @@ const Home: React.FC = () => {
             </span>
           </Link>
 
-          <Link to="/data">
+          <Link to="/news">
             <span>
-              データ
+              最新の
               <br />
-              いろいろ
+              Tecニュース
             </span>
           </Link>
 
