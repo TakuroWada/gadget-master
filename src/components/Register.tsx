@@ -100,6 +100,30 @@ const Register: React.FC = () => {
     setDetails("");
   };
 
+  const categoryList = [
+    "スマートフォン",
+    "タブレット",
+    "スマホ周辺機器",
+    "PC",
+    "キーボード",
+    "マウス",
+    "ディスプレイ",
+    "その他PC周辺機器",
+    "イヤホン",
+    "ヘッドホン",
+    "スピーカー",
+    "マイク",
+    "スマートウォッチ",
+    "カメラ",
+    "レンズ",
+    "その他カメラ周辺機器",
+    "ケーブル類",
+    "その他周辺機器",
+    "その他",
+  ];
+
+  const possessionStatusList = ["所持中", "売却済", "譲渡済", "なくした"];
+
   return (
     <>
       <div className={styles.register}>
@@ -145,14 +169,17 @@ const Register: React.FC = () => {
 
             <div className={styles.input_item}>
               <label>カテゴリー</label>
-              <input
+              <select
                 className={styles.text_input}
-                placeholder="カテゴリー"
-                type="text"
-                autoFocus
-                value={category}
                 onChange={(e) => setCategory(e.target.value)}
-              />
+              >
+                <option hidden value="未設定">
+                  カテゴリーを選択 ▼
+                </option>
+                {categoryList.map((item) => (
+                  <option value={item}>{item}</option>
+                ))}
+              </select>
             </div>
 
             <div className={styles.input_item}>
@@ -160,7 +187,7 @@ const Register: React.FC = () => {
               <input
                 className={styles.text_input}
                 placeholder="値段"
-                type="text"
+                type="number"
                 autoFocus
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
@@ -181,14 +208,17 @@ const Register: React.FC = () => {
 
             <div className={styles.input_item}>
               <label>所持状況</label>
-              <input
+              <select
                 className={styles.text_input}
-                placeholder="所持状況"
-                type="text"
-                autoFocus
-                value={possessionStatus}
                 onChange={(e) => setPossessionStatus(e.target.value)}
-              />
+              >
+                <option hidden value="未設定">
+                  状況を選択 ▼
+                </option>
+                {possessionStatusList.map((item) => (
+                  <option value={item}>{item}</option>
+                ))}
+              </select>
             </div>
           </div>
 
@@ -204,12 +234,13 @@ const Register: React.FC = () => {
           </div>
 
           <button
-            className={styles.submit_button}
+            className={
+              gadgetName && maker && price && purchaseDate
+                ? styles.submit_button
+                : styles.submit_button_false
+            }
             type="submit"
-            disabled={!gadgetName}
-            /*   className={
-            gadgetName ? styles.tweet_sendBtn : styles.tweet_sendDisableBtn
-          } */
+            disabled={!gadgetName && !maker && !price && !purchaseDate}
           >
             新規登録
           </button>
