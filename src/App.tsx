@@ -8,10 +8,10 @@ import firebase from "firebase/app";
 import Home from "./components/Home";
 import List from "./components/List";
 import Register from "./components/Register";
-import Data from "./components/Data";
 import Setting from "./components/Setting";
 import Auth from "./components/Auth";
 import Header from "./components/Header";
+import News from "./components/News";
 
 const App: React.FC = () => {
   const user = useSelector(selectUser);
@@ -51,7 +51,7 @@ const App: React.FC = () => {
             <Route exact path="/" component={Home} />
             <Route exact path="/list" component={List} />
             <Route exact path="/register" component={Register} />
-            <Route exact path="/data" component={Data} />
+            <Route exact path="/news" component={News} />
             <Route exact path="/setting" component={Setting} />
           </div>
         ) : (
