@@ -123,6 +123,7 @@ const Item: React.FC<PROPS> = (props) => {
           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         });
     }
+    setOpenModal(false);
     window.alert("更新が完了しました");
   };
 
