@@ -123,6 +123,7 @@ const Item: React.FC<PROPS> = (props) => {
           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         });
     }
+    setOpenModal(false);
     window.alert("更新が完了しました");
   };
 
@@ -133,6 +134,30 @@ const Item: React.FC<PROPS> = (props) => {
       e.target.value = "";
     }
   };
+
+  const categoryList = [
+    "スマートフォン",
+    "タブレット",
+    "スマホ周辺機器",
+    "PC",
+    "キーボード",
+    "マウス",
+    "ディスプレイ",
+    "その他PC周辺機器",
+    "イヤホン",
+    "ヘッドホン",
+    "スピーカー",
+    "マイク",
+    "スマートウォッチ",
+    "カメラ",
+    "レンズ",
+    "その他カメラ周辺機器",
+    "ケーブル類",
+    "その他周辺機器",
+    "その他",
+  ];
+
+  const possessionStatusList = ["所持中", "売却済", "譲渡済", "なくした"];
 
   return (
     <div className={styles.item_card}>
@@ -197,17 +222,18 @@ const Item: React.FC<PROPS> = (props) => {
 
               <div className={styles.modal_input}>
                 <label>カテゴリー</label>
-                <input
-                  type="text"
-                  value={category}
-                  onChange={(e) => setCategory(e.target.value)}
-                />
+                <select onChange={(e) => setCategory(e.target.value)}>
+                  <option value={category}>{category}</option>
+                  {categoryList.map((item) => (
+                    <option value={item}>{item}</option>
+                  ))}
+                </select>
               </div>
 
               <div className={styles.modal_input}>
                 <label>値段</label>
                 <input
-                  type="text"
+                  type="number"
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
                 />
@@ -215,11 +241,12 @@ const Item: React.FC<PROPS> = (props) => {
 
               <div className={styles.modal_input}>
                 <label>所持状況</label>
-                <input
-                  type="text"
-                  value={possessionStatus}
-                  onChange={(e) => setPossessionStatus(e.target.value)}
-                />
+                <select onChange={(e) => setPossessionStatus(e.target.value)}>
+                  <option value={possessionStatus}>{possessionStatus}</option>
+                  {possessionStatusList.map((item) => (
+                    <option value={item}>{item}</option>
+                  ))}
+                </select>
               </div>
 
               <div className={styles.modal_input}>
