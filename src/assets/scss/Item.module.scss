@@ -96,7 +96,7 @@
   top: 50%;
   left: 50%;
   display: block;
-  padding: 4rem 1.6rem;
+  padding: 1.6rem 2.4rem;
   max-width: 30rem;
   width: 100%;
   border-radius: 1em;
@@ -156,9 +156,9 @@
 
 .modal_title {
   display: block;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   border-bottom: 2px solid #fafafa;
-  margin: 2.4rem auto 0 auto;
+  margin: 1.6rem auto 0 auto;
   text-align: center;
 
   @include tab {
@@ -170,34 +170,34 @@
   font-size: 1.6rem;
   display: flex;
   flex-direction: column;
-  margin-top: 2.4rem;
+  margin-top: 1.6rem;
 
   & label {
-    font-weight: bold;
+    font-size: 1.2rem;
   }
 
   & input {
     border-bottom: 1px solid #fafafa;
-    padding: 0.8rem 0.4rem 0.4rem 0.4rem;
+    padding: 0.2rem;
   }
 
   & select {
     border-bottom: 1px solid #fafafa;
-    padding: 0.8rem 0.4rem 0.4rem 0.4rem;
+    padding: 0.2rem;
   }
 }
 
 .modal_details {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   display: flex;
   flex-direction: column;
-  margin-top: 2.4rem;
+  margin-top: 1.6rem;
 
   & textarea {
     border: 1px solid #fafafa;
     border-radius: 8px;
-    margin-top: 0.8rem;
-    padding: 0.8rem;
+    margin-top: 0.2rem;
+    padding: 0.4rem;
     white-space: normal;
     @include tab {
       width: 24rem;
@@ -208,7 +208,7 @@
 .modal_button_area {
   display: flex;
   justify-content: center;
-  margin-top: 2.4rem;
+  margin-top: 0.8rem;
 }
 
 .submit_button {
