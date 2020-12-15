@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./assets/reset.css";
-import "./assets/scss/base.scss";
 import "./assets/index.css";
 import App from "./App";
 import { store } from "./app/store";

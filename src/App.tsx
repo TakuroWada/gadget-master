@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styles from "./assets/scss/App.module.scss";
+import "./assets/scss/App.module.scss";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { selectUser, login, logout } from "./features/userSlice";
@@ -46,7 +46,7 @@ const App: React.FC = () => {
     <>
       <Router>
         {user.uid ? (
-          <div className={styles.app}>
+          <div>
             <Header />
             <Route exact path="/" component={Home} />
             <Route exact path="/list" component={List} />
