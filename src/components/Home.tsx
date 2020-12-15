@@ -6,8 +6,54 @@ import styles from "../assets/scss/Home.module.scss";
 import { Avatar } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
+interface ITEMDATA {
+  price: string;
+  possessionStatus: string;
+}
+
 const Home: React.FC = () => {
   const user = useSelector(selectUser);
+
+  const [totalRegistrationAmount, setTotalRegistrationAmount] = React.useState(
+    ""
+  );
+  const [totalPossessionAmount, setTotalPossessionAmount] = React.useState("");
+  const [allPrice, setAllPrice] = React.useState<ITEMDATA[]>([
+    {
+      price: "",
+      possessionStatus: "",
+    },
+  ]);
+
+  useEffect(() => {
+    db.collection("users")
+      .doc(user.uid)
+      .collection("items")
+      .onSnapshot((snapshot) =>
+        setAllPrice(
+          snapshot.docs.map((doc) => ({
+            price: doc.data().price,
+            possessionStatus: doc.data().possessionStatus,
+          }))
+        )
+      );
+    sumPrice();
+  }, [user.uid]);
+
+  const sumPrice = () => {
+    //登録合計金額と所持中の合計金額を計算
+    let registTotal = 0;
+    let possessionTotal = 0;
+    allPrice.forEach(function (item) {
+      registTotal += parseInt(item.price);
+      if (item.possessionStatus === "所持中") {
+        possessionTotal += parseInt(item.price);
+      }
+    });
+    setTotalRegistrationAmount(String(registTotal));
+    setTotalPossessionAmount(String(possessionTotal));
+  };
+
   return (
     <div className={styles.home}>
       <section className={styles.status_section}>
@@ -19,19 +65,19 @@ const Home: React.FC = () => {
           </div>
 
           <div className={styles.text_area}>
-            <div className={styles.text_item}>
+            {/*  <div className={styles.text_item}>
               <h3 className={styles.sub_title}>現在の肩書き</h3>
               <p>一般人</p>
-            </div>
+            </div> */}
 
             <div className={styles.text_item}>
               <h3 className={styles.sub_title}>登録した総額</h3>
-              <p>¥300000</p>
+              <p>¥{totalRegistrationAmount}</p>
             </div>
 
             <div className={styles.text_item}>
               <h3 className={styles.sub_title}>所持品の総額</h3>
-              <p>¥200000</p>
+              <p>¥{totalPossessionAmount}</p>
             </div>
           </div>
         </div>
