@@ -9,6 +9,11 @@ import { TextField, makeStyles, Modal, IconButton } from "@material-ui/core";
 
 //icon
 import SendIcon from "@material-ui/icons/Send";
+import CameraIcon from "../assets/images/camera.png";
+import SpIcon from "../assets/images/sp.png";
+import PcIcon from "../assets/images/pc.png";
+import TbIcon from "../assets/images/tablet.png";
+import MainTitle from "../assets/images/maintitle.png";
 
 //モーダルスタイル
 function getModalStyle() {
@@ -113,12 +118,20 @@ const Auth: React.FC = () => {
   return (
     <div className={styles.auth}>
       <div className={styles.chatch}>
-        <h1 className={styles.title}>Gadget Master</h1>
+        <h1 className={styles.title}>
+          <img src={MainTitle} alt="Gadget Master" />
+        </h1>
         <p className={styles.chatch_text}>
-          Gadget Masterはあなたの持っている
+          Gadget Masterはガジェット
           <br />
-          ガジェットを管理するアプリです。
+          好きのための管理アプリです。
         </p>
+        <div className={styles.chatch_images}>
+          <img src={SpIcon} alt="" />
+          <img src={PcIcon} alt="" />
+          <img src={CameraIcon} alt="" />
+          <img src={TbIcon} alt="" />
+        </div>
       </div>
 
       <form className={styles.auth_form} noValidate>

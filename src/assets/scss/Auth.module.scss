@@ -7,7 +7,7 @@
 }
 
 .chatch {
-  padding: 8rem 0.8rem 12rem 0.8rem;
+  padding: 10rem 0.8rem 6rem 0.8rem;
   background-color: #19a0b9;
 }
 
@@ -18,16 +18,34 @@
   color: #fafafa;
   @include tab {
     font-size: 3.2rem;
+    & img {
+      width: 40rem;
+    }
   }
 }
 
 .chatch_text {
   color: #fafafa;
   text-align: center;
-  margin-top: 2.4rem;
+  margin-top: 4rem;
   @include tab {
     font-size: 2rem;
     margin-top: 3.2rem;
+  }
+}
+.chatch_images {
+  max-width: 30rem;
+  margin: 4rem auto 0 auto;
+  text-align: center;
+  @include tab {
+    max-width: 48rem;
+  }
+  & img {
+    width: 4rem;
+    margin: 1.2rem;
+    @include tab {
+      margin: 1.2rem 1.6rem;
+    }
   }
 }
 
@@ -43,7 +61,7 @@
 
 .auth_form {
   max-width: 30rem;
-  margin: 2.4rem auto 0 auto;
+  margin: 1.6rem auto 0 auto;
   padding-bottom: 4rem;
 
   @include tab {
@@ -65,10 +83,12 @@
   width: 6.4rem;
   height: 6.4rem;
   border-radius: 50%;
-  background-color: #fafafa;
+  background-color: #e76d09;
+  color: #fafafa;
+  border: solid 2px #fafafa;
 
   &:hover {
-    background-color: #caf7f8;
+    background-color: #ec9d26;
   }
 }
 .login_add_icon_loaded {
