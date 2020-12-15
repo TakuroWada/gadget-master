@@ -1,4 +1,15 @@
-.app {
-  font-size: 1.6rem;
+//共通設定
+html {
+  font-size: 62.5%;
+  letter-spacing: 0.1em;
   background-color: #edeeef;
+}
+
+body {
+  color: #555;
+  line-height: 1.5;
+  overflow-x: hidden;
+  z-index: 1;
+  background-color: #edeeef;
+  font-size: 1.6em;
 }
