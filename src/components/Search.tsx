@@ -75,7 +75,6 @@ const Search: React.FC<PROPS> = (props) => {
           className={styles.text_input}
           placeholder="キーワードを入力"
           type="text"
-          autoFocus
           value={searchWord}
           onChange={(e) => setSearchWord(e.target.value)}
         />
