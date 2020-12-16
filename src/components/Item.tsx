@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
 import { storage, db } from "../firebase";
 import firebase from "firebase/app";
-import DeleteIcon from "../assets/scss/images/delete.png";
 import Modal from "react-modal";
 
 interface PROPS {
