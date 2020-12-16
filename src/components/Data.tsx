@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { db } from "../firebase";
+import React from "react";
 import styles from "../assets/scss/Data.module.scss";
 
 const Data: React.FC = () => {
