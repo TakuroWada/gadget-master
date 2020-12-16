@@ -22,14 +22,14 @@
 
 .item_icon {
   overflow: hidden;
-  width: 4rem;
-  height: 4rem;
+  width: 4.8rem;
+  height: 4.8rem;
   background-color: #fafafa;
   border-radius: 50%;
-  line-height: 4rem;
+  line-height: 4.8rem;
   cursor: pointer;
   object-fit: cover;
-  align-self: center;
+  //align-self: center;
 
   & img {
     display: inline-block;
