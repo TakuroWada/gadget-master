@@ -88,7 +88,6 @@ const Setting: React.FC = () => {
               className={styles.text_input}
               placeholder="ユーザー名"
               type="text"
-              autoFocus
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />

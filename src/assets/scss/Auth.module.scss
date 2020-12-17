@@ -1,22 +1,176 @@
+@import "./breakpoint";
+
+.auth {
+  background-color: #198eb9;
+  font-size: 1.6rem;
+  min-height: 100vh;
+}
+
+.chatch {
+  padding: 10rem 0.8rem 6rem 0.8rem;
+  background-color: #198eb9;
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  color: #fafafa;
+  @include tab {
+    font-size: 3.2rem;
+    & img {
+      width: 40rem;
+    }
+  }
+}
+
+.chatch_text {
+  color: #fafafa;
+  text-align: center;
+  margin-top: 4rem;
+  @include tab {
+    font-size: 2rem;
+    margin-top: 3.2rem;
+  }
+}
+.chatch_images {
+  max-width: 30rem;
+  margin: 4rem auto 0 auto;
+  text-align: center;
+  @include tab {
+    max-width: 48rem;
+  }
+  & img {
+    width: 4rem;
+    margin: 1.2rem;
+    @include tab {
+      margin: 1.2rem 1.6rem;
+    }
+  }
+}
+
+.sub_title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: #fafafa;
+  @include tab {
+    font-size: 2.4rem;
+  }
+}
+
+.auth_form {
+  max-width: 30rem;
+  margin: 1.6rem auto 0 auto;
+  padding-bottom: 4rem;
+
+  @include tab {
+    max-width: 48rem;
+  }
+}
+
+.login_hidden_icon {
+  text-align: center;
+  display: none;
+}
+.login_add_icon {
+  cursor: pointer;
+  display: block;
+  margin: 1.6rem auto 0 auto;
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 6.4rem;
+  width: 6.4rem;
+  height: 6.4rem;
+  border-radius: 50%;
+  background-color: #e76d09;
+  color: #fafafa;
+  border: solid 2px #fafafa;
+
+  &:hover {
+    background-color: #ec9d26;
+  }
+}
+.login_add_icon_loaded {
+  cursor: pointer;
+  display: block;
+  margin: 1.6rem auto 0 auto;
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 6.4rem;
+  width: 6.4rem;
+  height: 6.4rem;
+  border-radius: 50%;
+  background-color: #198eb9;
+  color: #fafafa;
+  border: solid 2px #fafafa;
+}
+
+.text_input {
+  display: block;
+  border-radius: 8px;
+  background-color: #fafafa;
+  width: 100%;
+  text-align: left;
+  padding: 0.8rem;
+  margin-top: 3.2rem;
+}
+
+.button_area {
+  margin-top: 6rem;
+}
+
+.submit_button {
+  display: block;
+  width: 24rem;
+  font-size: 1.8rem;
+  padding: 0.8rem;
+  background-color: #10262c;
+  border-radius: 8px;
+  margin: 3.2rem auto 0 auto;
+  color: #fafafa;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #20414b;
+    color: #fafafa;
+    transition: all 0.3s;
+  }
+}
+.submit_button_false {
+  @extend .submit_button;
+  background-color: #aaa;
+  &:hover {
+    background-color: #aaa;
+  }
+}
+
+.linkbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.6rem;
+  font-size: 1.4rem;
+}
+
+.button_google {
+  @extend .submit_button;
+  background-color: #e56d06;
+
+  &:hover {
+    background-color: #ec9d26;
+  }
+}
+
 .login_toggleMode {
   cursor: pointer;
-  color: #0000ff;
+  color: #d5fdfb;
 }
 .login_modal {
   text-align: center;
 }
 .login_reset {
   cursor: pointer;
-}
-.login_hiddenIcon {
-  text-align: center;
-  display: none;
-}
-.login_addIcon {
-  cursor: pointer;
-  color: gray;
-}
-.login_addIconLoaded {
-  cursor: pointer;
-  color: whitesmoke;
+  color: #fafafa;
 }

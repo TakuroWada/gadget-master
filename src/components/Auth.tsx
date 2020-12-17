@@ -5,26 +5,15 @@ import { updateUserProfile } from "../features/userSlice";
 import { auth, provider, storage } from "../firebase";
 
 //material-ui
-import {
-  Avatar,
-  Button,
-  CssBaseline,
-  TextField,
-  Paper,
-  Grid,
-  Typography,
-  makeStyles,
-  Modal,
-  IconButton,
-  Box,
-} from "@material-ui/core";
+import { TextField, makeStyles, Modal, IconButton } from "@material-ui/core";
 
 //icon
 import SendIcon from "@material-ui/icons/Send";
-import CameraIcon from "@material-ui/icons/Camera";
-import EmailIcon from "@material-ui/icons/Email";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import CameraIcon from "../assets/images/camera.png";
+import SpIcon from "../assets/images/sp.png";
+import PcIcon from "../assets/images/pc.png";
+import TbIcon from "../assets/images/tablet.png";
+import MainTitle from "../assets/images/maintitle.png";
 
 //モーダルスタイル
 function getModalStyle() {
@@ -39,37 +28,6 @@ function getModalStyle() {
 }
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    height: "100vh",
-  },
-  image: {
-    backgroundImage:
-      "url(https://images.unsplash.com/photo-1607139677169-b1a408743edd?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60)",
-    backgroundRepeat: "no-repeat",
-    backgroundColor:
-      theme.palette.type === "light"
-        ? theme.palette.grey[50]
-        : theme.palette.grey[900],
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  },
-  paper: {
-    margin: theme.spacing(8, 4),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
   modal: {
     outline: "none",
     position: "absolute",
@@ -158,172 +116,168 @@ const Auth: React.FC = () => {
   };
 
   return (
-    <Grid container component="main" className={classes.root}>
-      <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            {isLogin ? "ログイン" : "新規登録"}
-          </Typography>
-          <form className={classes.form} noValidate>
-            {!isLogin && (
-              <>
-                <TextField
-                  variant="outlined"
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="username"
-                  label="Username"
-                  name="username"
-                  autoComplete="username"
-                  autoFocus
-                  value={username}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    setUsername(e.target.value);
-                  }}
-                />
-                <Box textAlign="center">
-                  <IconButton>
-                    <label>
-                      <AccountCircleIcon
-                        fontSize="large"
-                        className={
-                          avatarImage
-                            ? styles.login_addIconLoaded
-                            : styles.login_addIcon
-                        }
-                      />
-                      <input
-                        className={styles.login_hiddenIcon}
-                        type="file"
-                        onChange={onChangeImageHandler}
-                      />
-                    </label>
-                  </IconButton>
-                </Box>
-              </>
-            )}
-            <TextField
-              variant="outlined"
-              margin="normal"
+    <div className={styles.auth}>
+      <div className={styles.chatch}>
+        <h1 className={styles.title}>
+          <img src={MainTitle} alt="Gadget Master" />
+        </h1>
+        <p className={styles.chatch_text}>
+          Gadget Masterはガジェット
+          <br />
+          好きのための管理アプリです。
+        </p>
+        <div className={styles.chatch_images}>
+          <img src={SpIcon} alt="" />
+          <img src={PcIcon} alt="" />
+          <img src={CameraIcon} alt="" />
+          <img src={TbIcon} alt="" />
+        </div>
+      </div>
+
+      <form className={styles.auth_form} noValidate>
+        <h2 className={styles.sub_title}>
+          {isLogin ? "ログイン" : "新規登録"}
+        </h2>
+        {!isLogin && (
+          <>
+            <div>
+              <div className={styles.select_icon}>
+                <label>
+                  <div
+                    className={
+                      avatarImage
+                        ? styles.login_add_icon_loaded
+                        : styles.login_add_icon
+                    }
+                  >
+                    {avatarImage ? "選択済" : "画像選択"}
+                  </div>
+                  <input
+                    className={styles.login_hidden_icon}
+                    type="file"
+                    required
+                    onChange={onChangeImageHandler}
+                  />
+                </label>
+              </div>
+            </div>
+
+            <input
+              className={styles.text_input}
+              placeholder="UserName"
+              value={username}
               required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              value={email}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setEmail(e.target.value);
+                setUsername(e.target.value);
               }}
             />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              value={password}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setPassword(e.target.value);
-              }}
-            />
-            <Button
-              disabled={
+          </>
+        )}
+        <input
+          className={styles.text_input}
+          placeholder="Email Address"
+          value={email}
+          required
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setEmail(e.target.value);
+          }}
+        />
+        <input
+          className={styles.text_input}
+          type="password"
+          placeholder="PassWord"
+          value={password}
+          required
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setPassword(e.target.value);
+          }}
+        />
+        <div className={styles.linkbox}>
+          <span
+            onClick={() => setOpenModal(true)}
+            className={styles.login_reset}
+          >
+            パスワードをお忘れの方
+          </span>
+
+          <span
+            className={styles.login_toggleMode}
+            onClick={() => setIsLogin(!isLogin)}
+          >
+            {isLogin ? "新規ユーザー作成" : "ログイン"}
+          </span>
+        </div>
+
+        <div className={styles.button_area}>
+          <button
+            type="button"
+            className={
+              (
                 isLogin
                   ? !email || password.length < 6
                   : !username || !email || password.length < 6 || !avatarImage
-              }
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              startIcon={<EmailIcon />}
-              onClick={
-                isLogin
-                  ? async () => {
-                      try {
-                        await singInEmail();
-                      } catch (err) {
-                        alert(err.message);
-                      }
+              )
+                ? styles.submit_button_false
+                : styles.submit_button
+            }
+            disabled={
+              isLogin
+                ? !email || password.length < 6
+                : !username || !email || password.length < 6 || !avatarImage
+            }
+            onClick={
+              isLogin
+                ? async () => {
+                    try {
+                      await singInEmail();
+                    } catch (err) {
+                      alert(err.message);
                     }
-                  : async () => {
-                      try {
-                        await signUpEmail();
-                      } catch (err) {
-                        alert(err.message);
-                      }
+                  }
+                : async () => {
+                    try {
+                      await signUpEmail();
+                    } catch (err) {
+                      alert(err.message);
                     }
-              }
-            >
-              {isLogin ? "ログイン" : "新規登録"}
-            </Button>
+                  }
+            }
+          >
+            {isLogin ? "ログイン" : "新規登録"}
+          </button>
 
-            <Grid container>
-              <Grid item xs>
-                <span
-                  onClick={() => setOpenModal(true)}
-                  className={styles.login_reset}
-                >
-                  パスワードをお忘れの方
-                </span>
-              </Grid>
-              <Grid item>
-                <span
-                  className={styles.login_toggleMode}
-                  onClick={() => setIsLogin(!isLogin)}
-                >
-                  {isLogin ? "新規ユーザー作成" : "ログイン"}
-                </span>
-              </Grid>
-            </Grid>
-
-            <Button
-              fullWidth
-              variant="contained"
-              color="primary"
-              startIcon={<CameraIcon />}
-              className={classes.submit}
-              onClick={singInGoogle}
-            >
-              Googleアカウントでログイン
-            </Button>
-          </form>
-          <Modal open={openModal} onClose={() => setOpenModal(false)}>
-            <div style={getModalStyle()} className={classes.modal}>
-              <div className={styles.login_modal}>
-                <TextField
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  type="email"
-                  name="email"
-                  label="Reset E-mail"
-                  value={resetEmail}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    setResetEmail(e.target.value);
-                  }}
-                />
-                <IconButton onClick={sendResetEmail}>
-                  <SendIcon />
-                </IconButton>
-              </div>
-            </div>
-          </Modal>
+          <button
+            type="button"
+            className={styles.button_google}
+            onClick={singInGoogle}
+          >
+            Googleサインイン
+          </button>
         </div>
-      </Grid>
-    </Grid>
+      </form>
+
+      <Modal open={openModal} onClose={() => setOpenModal(false)}>
+        <div style={getModalStyle()} className={classes.modal}>
+          <div className={styles.login_modal}>
+            <TextField
+              InputLabelProps={{
+                shrink: true,
+              }}
+              type="email"
+              name="email"
+              label="Reset E-mail"
+              value={resetEmail}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setResetEmail(e.target.value);
+              }}
+            />
+            <IconButton onClick={sendResetEmail}>
+              <SendIcon />
+            </IconButton>
+          </div>
+        </div>
+      </Modal>
+    </div>
   );
 };
 export default Auth;

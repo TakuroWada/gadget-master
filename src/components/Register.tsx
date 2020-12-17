@@ -149,7 +149,6 @@ const Register: React.FC = () => {
                 className={styles.text_input}
                 placeholder="ガジェット名"
                 type="text"
-                autoFocus
                 value={gadgetName}
                 onChange={(e) => setGadgetName(e.target.value)}
               />
@@ -161,7 +160,6 @@ const Register: React.FC = () => {
                 className={styles.text_input}
                 placeholder="メーカー"
                 type="text"
-                autoFocus
                 value={maker}
                 onChange={(e) => setMaker(e.target.value)}
               />
@@ -188,7 +186,6 @@ const Register: React.FC = () => {
                 className={styles.text_input}
                 placeholder="値段"
                 type="number"
-                autoFocus
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
               />
@@ -200,7 +197,6 @@ const Register: React.FC = () => {
                 className={styles.text_input}
                 placeholder="購入日"
                 type="date"
-                autoFocus
                 value={purchaseDate}
                 onChange={(e) => setPurchaseDate(e.target.value)}
               />
@@ -227,7 +223,6 @@ const Register: React.FC = () => {
             <textarea
               className={styles.text_area}
               placeholder="詳細"
-              autoFocus
               value={details}
               onChange={(e) => setDetails(e.target.value)}
             />

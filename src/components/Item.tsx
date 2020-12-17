@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
 import { storage, db } from "../firebase";
 import firebase from "firebase/app";
-import DeleteIcon from "../assets/scss/images/delete.png";
 import Modal from "react-modal";
 
 interface PROPS {
@@ -191,16 +190,20 @@ const Item: React.FC<PROPS> = (props) => {
         onRequestClose={() => setOpenModal(false)}
       >
         <form onSubmit={editItem}>
-          <div className={styles.icon_area}>
+          <label className={styles.icon_area}>
             <div className={styles.modal_icon}>
-              <img src={props.gadgetIcon} alt="icon" />
+              {gadgetIcon ? (
+                <div className={styles.modal_icon_true}>選択済</div>
+              ) : (
+                <img src={props.gadgetIcon} alt="icon" />
+              )}
             </div>
             <input
-              className={styles.icon}
+              className={styles.icon_hidden}
               type="file"
               onChange={onChangeIconHandler}
             />
-          </div>
+          </label>
 
           <input
             type="text"

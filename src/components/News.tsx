@@ -1,8 +1,5 @@
-import { ContactSupportOutlined } from "@material-ui/icons";
 import React, { useState, useEffect } from "react";
-import { db } from "../firebase";
 import styles from "../assets/scss/News.module.scss";
-import { url } from "inspector";
 import NoImage from "../assets/images/noimage.png";
 
 const News: React.FC = () => {
