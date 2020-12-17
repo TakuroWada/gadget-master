@@ -1,0 +1,14 @@
+.hnav {
+  li {
+    display: inline;
+    & a {
+      color: #fafafa;
+      padding-right: 16px;
+    }
+  }
+
+  & span {
+    font-size: 1.6rem;
+    color: #fafafa;
+  }
+}

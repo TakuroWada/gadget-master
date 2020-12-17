@@ -1,0 +1,244 @@
+@import "./breakpoint";
+
+.item_card {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  background-color: #1d3443;
+  color: #fafafa;
+  margin: 1.2rem auto 0 auto;
+  padding: 1.6rem 0.4rem;
+  max-width: 31rem;
+  width: 100%;
+  border-radius: 8px;
+
+  @include tab {
+    margin: 1.6rem 1.6rem 0 0;
+    padding: 2.4rem 0.8rem;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.item_icon {
+  overflow: hidden;
+  width: 4.8rem;
+  height: 4.8rem;
+  background-color: #fafafa;
+  border-radius: 50%;
+  line-height: 4.8rem;
+  cursor: pointer;
+  object-fit: cover;
+  //align-self: center;
+
+  & img {
+    display: inline-block;
+    width: 100%;
+  }
+
+  @include pc {
+    width: 6rem;
+    height: 6rem;
+    line-height: 4.8rem;
+  }
+}
+.item_text_area {
+  & ul {
+    margin-top: 0.8rem;
+  }
+  & li {
+    padding-top: 0.4rem;
+  }
+  @include pc {
+    width: 20rem;
+  }
+}
+
+.item_name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  border-bottom: 1px solid #fafafa;
+  width: 14rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  @include tab {
+    width: 20rem;
+    margin-top: 1.6rem;
+    text-align: center;
+    font-size: 2rem;
+  }
+}
+
+.details_button {
+  background-color: #198eb9;
+  color: #fafafa;
+  font-weight: bold;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.8rem;
+  align-self: flex-end;
+  text-align: center;
+  @include tab {
+    align-self: center;
+    margin-top: 1.6rem;
+    width: 16rem;
+  }
+}
+
+.modal {
+  background-color: #1d3443ea;
+  color: #fafafa;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  padding: 1.6rem 2.4rem;
+  max-width: 30rem;
+  width: 100%;
+  border-radius: 1em;
+  transform: translate(-50%, -50%);
+  outline: transparent;
+
+  @include tab {
+    max-width: 60rem;
+  }
+}
+.modeal_flexbox {
+  @include tab {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.icon_area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal_icon {
+  overflow: hidden;
+  width: 6rem;
+  height: 6rem;
+  background-color: #fafafa;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 6rem;
+  cursor: pointer;
+  object-fit: cover;
+
+  & img {
+    display: inline-block;
+    width: 100%;
+  }
+
+  @include tab {
+    margin-bottom: 1.6rem;
+  }
+}
+
+.modal_icon_true {
+  width: 6rem;
+  height: 6rem;
+  background-color: #fafafa;
+  color: #1d3443;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 6rem;
+  cursor: pointer;
+}
+
+.icon_hidden {
+  display: none;
+}
+
+.modal_title {
+  display: block;
+  font-size: 1.6rem;
+  border-bottom: 2px solid #fafafa;
+  margin: 1.6rem auto 0 auto;
+  text-align: center;
+
+  @include tab {
+    font-size: 2.4rem;
+  }
+}
+
+.modal_input {
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.6rem;
+
+  & label {
+    font-size: 1.2rem;
+  }
+
+  & input {
+    border-bottom: 1px solid #fafafa;
+    padding: 0.2rem;
+  }
+
+  & select {
+    border-bottom: 1px solid #fafafa;
+    padding: 0.2rem;
+  }
+}
+
+.modal_details {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.6rem;
+
+  & textarea {
+    border: 1px solid #fafafa;
+    border-radius: 8px;
+    margin-top: 0.2rem;
+    padding: 0.4rem;
+    white-space: normal;
+    @include tab {
+      width: 24rem;
+      height: 100%;
+    }
+  }
+}
+.modal_button_area {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.8rem;
+}
+
+.submit_button {
+  background-color: #fafafa;
+  border-radius: 8px;
+  color: #198eb9;
+  font-weight: bold;
+  padding: 0.8rem 1.6rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  min-width: 10rem;
+  text-align: center;
+  margin: 1.6rem 1.6rem 0 1.6rem;
+
+  &:hover {
+    background-color: #eee;
+    transition: all 0.3s;
+  }
+
+  @include tab {
+    width: 20rem;
+    margin: 2.4rem 2.4rem 0 2.4rem;
+  }
+}
+
+.delete_button {
+  @extend .submit_button;
+  color: #db576b;
+}
+
+.modal_close_btn {
+  display: block;
+  margin: 1.6rem 0 0 auto;
+  font-size: 1.4rem;
+}

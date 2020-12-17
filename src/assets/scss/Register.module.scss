@@ -1,0 +1,138 @@
+@import "./breakpoint";
+
+.register {
+  padding: 10rem 0.8rem;
+  background-color: #edeeef;
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: #198eb9;
+}
+
+.register_form {
+  text-align: center;
+  margin: 3.2rem auto 0 auto;
+  @include pc {
+    max-width: 72rem;
+  }
+}
+
+.add_icon_loaded {
+  display: block;
+  margin: 0 auto;
+  font-size: 14px;
+  text-align: center;
+  line-height: 8rem;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  border: solid 2px #333;
+  background-color: #fafafa;
+
+  &:hover {
+    background-color: #caf7f8;
+  }
+}
+
+.add_icon {
+  display: block;
+  margin: 0 auto;
+  font-size: 14px;
+  text-align: center;
+  line-height: 8rem;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  background-color: #fafafa;
+  border: solid 2px #198eb9;
+
+  &:hover {
+    background-color: #caf7f8;
+  }
+}
+
+.icon {
+  display: none;
+}
+
+.input_area {
+  margin-top: 1, 6rem;
+
+  @include pc {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.input_item {
+  text-align: left;
+  max-width: 30rem;
+  width: 100%;
+  margin: 2.4rem auto 0 auto;
+  @include pc {
+    width: 40%;
+  }
+}
+
+.input_details {
+  text-align: left;
+  max-width: 30rem;
+  margin: 2.4rem auto 0 auto;
+  @include pc {
+    max-width: 64rem;
+  }
+}
+
+.text_input {
+  display: block;
+  border-radius: 8px;
+  background-color: #fafafa;
+  width: 100%;
+  text-align: left;
+  padding: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.text_area {
+  display: block;
+  border-radius: 8px;
+  background-color: #fafafa;
+  width: 100%;
+  text-align: left;
+  padding: 0.8rem;
+  margin: 0.8rem auto 0 auto;
+
+  @include pc {
+    width: 64rem;
+    min-height: 12rem;
+  }
+}
+
+.submit_button {
+  display: block;
+  width: 24rem;
+  font-size: 1.8rem;
+  padding: 1.6rem;
+  background-color: #10262c;
+  border-radius: 8px;
+  margin: 3.2rem auto 0 auto;
+  color: #fafafa;
+
+  &:hover {
+    background-color: #198eb9;
+    transition: all 0.3s;
+  }
+}
+.submit_button_false {
+  display: block;
+  width: 24rem;
+  font-size: 1.8rem;
+  padding: 1.6rem;
+  background-color: #aaa;
+  border-radius: 8px;
+  margin: 3.2rem auto 0 auto;
+  color: #fafafa;
+}

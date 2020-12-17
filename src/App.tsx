@@ -1,58 +1,65 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { useEffect } from "react";
+import "./assets/scss/App.module.scss";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { selectUser, login, logout } from "./features/userSlice";
+import { auth, db } from "./firebase";
+import firebase from "firebase/app";
+import Home from "./components/Home";
+import List from "./components/List";
+import Register from "./components/Register";
+import Setting from "./components/Setting";
+import Auth from "./components/Auth";
+import Header from "./components/Header";
+import News from "./components/News";
 
-function App() {
+const App: React.FC = () => {
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const unSub = auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        dispatch(
+          login({
+            uid: authUser.uid,
+            photoUrl: authUser.photoURL,
+            displayName: authUser.displayName,
+          })
+        );
+
+        db.collection("users").doc(authUser.uid).set({
+          userId: authUser.uid,
+          userName: authUser.displayName,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        });
+      } else {
+        dispatch(logout());
+      }
+    });
+    return () => {
+      unSub();
+    };
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <>
+      <Router>
+        {user.uid ? (
+          <div>
+            <Header />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/list" component={List} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/news" component={News} />
+            <Route exact path="/setting" component={Setting} />
+          </div>
+        ) : (
+          <Auth />
+        )}
+      </Router>
+    </>
   );
-}
+};
 
 export default App;
