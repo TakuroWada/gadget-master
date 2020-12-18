@@ -163,6 +163,15 @@
   }
 }
 
+.button_demo {
+  @extend .submit_button;
+  background-color: #14b141;
+
+  &:hover {
+    background-color: #47ce6d;
+  }
+}
+
 .login_toggleMode {
   cursor: pointer;
   color: #d5fdfb;

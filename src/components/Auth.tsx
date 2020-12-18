@@ -80,6 +80,11 @@ const Auth: React.FC = () => {
     await auth.signInWithPopup(provider).catch((err) => alert(err.message));
   };
 
+  //デモユーザーログイン時の関数
+  const singInDemo = async () => {
+    await auth.signInWithEmailAndPassword("demo@gmail.com", "123456");
+  };
+
   //ログイン時の関数
   const singInEmail = async () => {
     await auth.signInWithEmailAndPassword(email, password);
@@ -209,6 +214,13 @@ const Auth: React.FC = () => {
         </div>
 
         <div className={styles.button_area}>
+          <button
+            type="button"
+            className={styles.button_demo}
+            onClick={singInDemo}
+          >
+            デモユーザーログイン
+          </button>
           <button
             type="button"
             className={
