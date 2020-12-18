@@ -11,7 +11,7 @@ import Register from "./components/Register";
 import Setting from "./components/Setting";
 import Auth from "./components/Auth";
 import Header from "./components/Header";
-import News from "./components/News";
+import RecommendedVideos from "./components/RecommendedVideos";
 
 const App: React.FC = () => {
   const user = useSelector(selectUser);
@@ -51,7 +51,11 @@ const App: React.FC = () => {
             <Route exact path="/" component={Home} />
             <Route exact path="/list" component={List} />
             <Route exact path="/register" component={Register} />
-            <Route exact path="/news" component={News} />
+            <Route
+              exact
+              path="/recommendedvideos"
+              component={RecommendedVideos}
+            />
             <Route exact path="/setting" component={Setting} />
           </div>
         ) : (

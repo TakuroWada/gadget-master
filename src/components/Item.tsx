@@ -134,6 +134,17 @@ const Item: React.FC<PROPS> = (props) => {
     }
   };
 
+  const resetInputField = () => {
+    setGadgetIcon(null);
+    setGadgetName(props.gadgetname);
+    setCategory(props.category);
+    setMaker(props.maker);
+    setPrice(props.price);
+    setPossessionStatus(props.possessionStatus);
+    setPurchaseDate(props.purchaseDate);
+    setDetails(props.details);
+  };
+
   const categoryList = [
     "スマートフォン",
     "タブレット",
@@ -187,7 +198,10 @@ const Item: React.FC<PROPS> = (props) => {
       <Modal
         className={styles.modal}
         isOpen={openModal}
-        onRequestClose={() => setOpenModal(false)}
+        onRequestClose={() => {
+          setOpenModal(false);
+          resetInputField();
+        }}
       >
         <form onSubmit={editItem}>
           <label className={styles.icon_area}>
@@ -292,6 +306,7 @@ const Item: React.FC<PROPS> = (props) => {
           type="button"
           onClick={() => {
             setOpenModal(false);
+            resetInputField();
           }}
         >
           閉じる
