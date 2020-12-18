@@ -123,11 +123,11 @@ const Home: React.FC = () => {
             </span>
           </Link>
 
-          <Link to="/news">
+          <Link to="/recommendedvideos">
             <span>
-              最新の
+              おすすめの
               <br />
-              Tecニュース
+              ガジェット動画
             </span>
           </Link>
 
