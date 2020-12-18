@@ -6,12 +6,40 @@ import styles from "../assets/scss/Home.module.scss";
 import { Avatar } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
+const rankList = [
+  {
+    rank: "一般人",
+    price: 200000,
+  },
+  {
+    rank: "ガジェット好き",
+    price: 600000,
+  },
+  {
+    rank: "ガジェットオタク",
+    price: 1500000,
+  },
+  {
+    rank: "ガジェット系YouTuber",
+    price: 3000000,
+  },
+  {
+    rank: "散財人",
+    price: 5000000,
+  },
+  {
+    rank: "ガジェットマスター",
+    price: -1,
+  },
+];
+
 const Home: React.FC = () => {
   const user = useSelector(selectUser);
   const [totalRegistrationAmount, setTotalRegistrationAmount] = React.useState(
     0
   );
   const [totalPossessionAmount, setTotalPossessionAmount] = React.useState(0);
+  const [rank, setRank] = React.useState("");
 
   useEffect(() => {
     let registTotal = 0;
@@ -32,8 +60,19 @@ const Home: React.FC = () => {
         });
       setTotalRegistrationAmount(registTotal);
       setTotalPossessionAmount(possessionTotal);
+      rankSet(registTotal);
     })();
   }, [user.uid]);
+
+  const rankSet = (registTotal: number) => {
+    rankList.some((item) => {
+      if (registTotal < item.price || item.price === -1) {
+        setRank(item.rank);
+        return true;
+      }
+      return false;
+    });
+  };
 
   return (
     <div className={styles.home}>
@@ -46,10 +85,10 @@ const Home: React.FC = () => {
           </div>
 
           <div className={styles.text_area}>
-            {/*  <div className={styles.text_item}>
-              <h3 className={styles.sub_title}>現在の肩書き</h3>
-              <p>一般人</p>
-            </div> */}
+            <div className={styles.text_item}>
+              <h3 className={styles.sub_title}>あなたの肩書き</h3>
+              <p>{rank}</p>
+            </div>
 
             <div className={styles.text_item}>
               <h3 className={styles.sub_title}>登録した総額</h3>
