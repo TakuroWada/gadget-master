@@ -23,7 +23,7 @@ const RecommendedVideos: React.FC = () => {
   // }, []);
 
   //console.log(videos);
-  const url = "https://www.youtube.com/embed/";
+  //const url = "https://www.youtube.com/embed/";
 
   return <p>test</p>;
 
