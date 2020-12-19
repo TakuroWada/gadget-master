@@ -6,11 +6,11 @@ require("dotenv").config();
 const YOUTUBE_API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
 const RecommendedVideos: React.FC = () => {
-  const [videos, setVideos] = React.useState<any[]>([]);
-  const [keyword, setKeyWord] = React.useState("ガジェット");
+  //const [videos, setVideos] = React.useState<any[]>([]);
+  //const [keyword, setKeyWord] = React.useState("ガジェット");
 
   useEffect(() => {
-    const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${keyword}&maxResults=3&key=${YOUTUBE_API_KEY}`;
+    /*   const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${keyword}&maxResults=3&key=${YOUTUBE_API_KEY}`;
 
     axios
       .get(url)
@@ -19,18 +19,18 @@ const RecommendedVideos: React.FC = () => {
       })
       .catch(() => {
         console.log("通信に失敗しました");
-      });
+      }); */
   }, []);
 
-  console.log(videos);
-  const url = "https://www.youtube.com/embed/";
+  //console.log(videos);
+  //const url = "https://www.youtube.com/embed/";
 
   return (
     <div className={styles.video}>
       <h1 className={styles.title}>おすすめガジェット動画</h1>
 
       <div className={styles.video_list}>
-        {videos.map((video) => (
+        {/*    {videos.map((video) => (
           <div className={styles.video_card}>
             <iframe
               className={styles.video_img}
@@ -40,7 +40,7 @@ const RecommendedVideos: React.FC = () => {
             />
             <p className={styles.video_title}>{video.snippet.title}</p>
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );
