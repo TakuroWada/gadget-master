@@ -51,8 +51,8 @@ export default function SimpleMenu() {
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link to="/news" onClick={handleClose}>
-            最新ニュース
+          <Link to="/recommendedvideos" onClick={handleClose}>
+            おすすめ動画
           </Link>
         </MenuItem>
         <MenuItem>

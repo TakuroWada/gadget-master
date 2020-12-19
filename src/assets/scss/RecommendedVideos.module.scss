@@ -1,0 +1,52 @@
+@import "./breakpoint";
+
+.video {
+  padding: 10rem 0 8rem 0;
+}
+
+.video_list {
+  max-width: 48rem;
+  margin: 1.6rem auto 0 auto;
+  padding: 0.8rem;
+  text-align: center;
+  @include tab {
+    max-width: 96rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1.6rem auto 0 auto;
+  }
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: #198eb9;
+  @include tab {
+    font-size: 2.4rem;
+  }
+}
+
+.video_card {
+  width: 100%;
+  margin: 1.6rem auto 0 auto;
+  background-color: #1d3443;
+  color: #fafafa;
+  border-radius: 0.8rem;
+  box-shadow: 0 0 8px #aaa;
+  @include tab {
+    max-width: 30rem;
+  }
+}
+
+.video_img {
+  width: 100%;
+  border-radius: 0.8rem 0.8rem 0 0;
+}
+
+.video_title {
+  display: block;
+  font-size: 1.4rem;
+  margin-top: 0.8rem;
+  padding: 1.6rem;
+}
