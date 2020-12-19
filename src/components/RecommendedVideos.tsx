@@ -29,16 +29,16 @@ const RecommendedVideos: React.FC = () => {
     <div className={styles.video}>
       <h1 className={styles.title}>おすすめガジェット動画</h1>
 
-      <div style={{ margin: "20px", textAlign: "center" }}>
+      <div className={styles.video_list}>
         {videos.map((video) => (
           <div className={styles.video_card}>
             <iframe
+              className={styles.video_img}
               title={video.id.title}
               id="ytplayer"
-              width="640"
-              height="360"
               src={url + video.id.videoId}
             />
+            <p className={styles.video_title}>{video.snippet.title}</p>
           </div>
         ))}
       </div>
