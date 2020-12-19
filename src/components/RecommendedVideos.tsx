@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { /* useState, */ useEffect } from "react";
 import styles from "../assets/scss/RecommendedVideos.module.scss";
 import NoImage from "../assets/images/noimage.png";
 //import axios from "axios";
