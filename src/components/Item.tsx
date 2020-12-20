@@ -213,8 +213,10 @@ const Item: React.FC<PROPS> = (props) => {
             <div className={styles.modal_icon}>
               {gadgetIcon ? (
                 <div className={styles.modal_icon_true}>選択済</div>
-              ) : (
+              ) : props.gadgetIcon !== "" ? (
                 <img src={props.gadgetIcon} alt="icon" />
+              ) : (
+                <img src={DefaultIcon} alt="icon" />
               )}
             </div>
             <input
