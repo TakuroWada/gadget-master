@@ -7,7 +7,12 @@
   justify-content: space-between;
   align-items: center;
   background-color: #198eb9;
-  padding: 0.8rem;
+  padding: 0.8rem 1.6rem;
+
+  button {
+    padding: 0;
+    min-width: 2.4rem;
+  }
 }
 
 .avatar {
@@ -15,4 +20,8 @@
     background-color: #fafafa;
     border-radius: 50%;
   }
+}
+
+.title {
+  width: 16rem;
 }
