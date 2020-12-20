@@ -17,6 +17,7 @@ const RecommendedVideos: React.FC = () => {
       })
       .catch(() => {
         console.log("通信に失敗しました");
+        console.log(YOUTUBE_API_KEY);
       });
   }, []);
 
