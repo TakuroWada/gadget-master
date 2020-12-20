@@ -87,18 +87,22 @@ const Register: React.FC = () => {
       );
     } else {
       //アイコンが指定されていない場合
-      db.collection("users").doc(user.uid).collection("items").add({
-        gadgetIcon: "",
-        gadgetname: gadgetName,
-        maker: maker,
-        category: category,
-        price: price,
-        purchaseDate: purchaseDate,
-        possessionStatus: possessionStatus,
-        username: user.displayName,
-        details: details,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      });
+      (async () => {
+        await db.collection("users").doc(user.uid).collection("items").add({
+          gadgetIcon: "",
+          gadgetname: gadgetName,
+          maker: maker,
+          category: category,
+          price: price,
+          purchaseDate: purchaseDate,
+          possessionStatus: possessionStatus,
+          username: user.displayName,
+          details: details,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        });
+        dispatch(loaded());
+        alert("登録が完了しました");
+      })();
     }
     //登録後ステート初期化
     setGadgetIcon(null);
