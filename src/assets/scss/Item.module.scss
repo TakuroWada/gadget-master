@@ -8,11 +8,12 @@
   color: #fafafa;
   margin: 1.2rem auto 0 auto;
   padding: 1.6rem 0.4rem;
-  max-width: 31rem;
+  max-width: 48rem;
   width: 100%;
   border-radius: 8px;
 
   @include tab {
+    max-width: 30rem;
     margin: 1.6rem 1.6rem 0 0;
     padding: 2.4rem 0.8rem;
     flex-direction: column;
@@ -26,7 +27,7 @@
   height: 4.8rem;
   background-color: #fafafa;
   border-radius: 50%;
-  line-height: 4.8rem;
+  line-height: 2rem;
   cursor: pointer;
   object-fit: cover;
   //align-self: center;
@@ -34,6 +35,8 @@
   & img {
     display: inline-block;
     width: 100%;
+    min-height: 100%;
+    height: auto;
   }
 
   @include pc {
@@ -86,7 +89,7 @@
 }
 
 .modal {
-  background-color: #1d3443ea;
+  background-color: #132633ea;
   color: #fafafa;
   position: absolute;
   top: 50%;

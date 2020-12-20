@@ -1,5 +1,5 @@
 @import "./breakpoint";
-
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Sawarabi+Gothic&display=swap");
 .home {
   width: 100%;
   background-color: #edeeef;
@@ -78,10 +78,12 @@
 }
 
 .text_area {
+  max-width: 16rem;
   & .text_item {
     margin-top: 1.6rem;
     font-size: 2rem;
     text-align: center;
+
     @include tab {
       text-align: left;
     }
@@ -95,10 +97,19 @@
       }
     }
     & p {
+      font-family: "Sawarabi Gothic", sans-serif;
       color: #94f0f3;
       @include tab {
         margin-top: 0.8rem;
         font-size: 2.4rem;
+      }
+    }
+
+    & .price {
+      font-family: "Press Start 2P", cursive;
+      font-size: 1.6rem;
+      @include tab {
+        font-size: 2rem;
       }
     }
   }
@@ -116,7 +127,7 @@
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
-  color: #01318b;
+  color: #10262c;
 
   &::before {
     position: relative;

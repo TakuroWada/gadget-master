@@ -67,7 +67,12 @@ const Setting: React.FC = () => {
 
   return (
     <div className={styles.setting}>
-      {app.loading && <p className={styles.loading}>更新中...</p>}
+      {app.loading && (
+        <div className={styles.loading}>
+          <p>更新中...</p>
+          <img src={app.loadingImg} alt="icon" />
+        </div>
+      )}
       <h1 className={styles.title}>ユーザー設定</h1>
       <form className={styles.setting_form} onSubmit={updateLoginUser}>
         <label>
