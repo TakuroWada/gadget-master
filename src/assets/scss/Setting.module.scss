@@ -47,7 +47,9 @@
   & img {
     width: 100%;
     height: 8rem;
+    border-radius: 50%;
     object-fit: contain;
+    background-color: #fafafa;
   }
 
   &:hover {

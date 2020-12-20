@@ -9,7 +9,7 @@ const Header: React.FC = () => {
   const user = useSelector(selectUser);
   return (
     <header className={styles.header}>
-      <Avatar className={styles.tweet_avatar} src={user.photoUrl} />
+      <Avatar className={styles.avatar} src={user.photoUrl} />
       <Nav />
     </header>
   );
