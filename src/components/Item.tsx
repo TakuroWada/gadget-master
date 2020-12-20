@@ -5,6 +5,7 @@ import { selectUser } from "../features/userSlice";
 import { storage, db } from "../firebase";
 import firebase from "firebase/app";
 import Modal from "react-modal";
+import DefaultIcon from "../assets/images/default_icon.gif";
 
 interface PROPS {
   itemId: string;
@@ -172,7 +173,11 @@ const Item: React.FC<PROPS> = (props) => {
   return (
     <div className={styles.item_card}>
       <div className={styles.item_icon}>
-        <img src={props.gadgetIcon} alt="icon" />
+        {props.gadgetIcon !== "" ? (
+          <img src={props.gadgetIcon} alt="icon" />
+        ) : (
+          <img src={DefaultIcon} alt="icon" />
+        )}
       </div>
 
       <div className={styles.item_text_area}>
