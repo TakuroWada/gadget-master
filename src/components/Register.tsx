@@ -71,6 +71,10 @@ const Register: React.FC = () => {
                   details: details,
                   timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                 });
+              alert("登録が完了しました");
+            })
+            .catch((error) => {
+              alert(error.message);
             });
         }
       );
