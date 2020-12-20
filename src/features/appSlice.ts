@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../app/store";
+import LoadingIcon from "../assets/images/loading.gif";
 
 export const appSlice = createSlice({
   name: "app",
   initialState: {
-    app: { loading: false },
+    app: { loading: false, loadingImg: LoadingIcon },
   },
   reducers: {
     loading: (state) => {

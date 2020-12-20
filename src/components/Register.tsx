@@ -137,7 +137,12 @@ const Register: React.FC = () => {
 
   return (
     <>
-      {app.loading && <p className={styles.loading}>登録中...</p>}
+      {app.loading && (
+        <div className={styles.loading}>
+          <p>登録中...</p>
+          <img src={app.loadingImg} alt="icon" />
+        </div>
+      )}
       <div className={styles.register}>
         <h1 className={styles.title}>ガジェット新規登録</h1>
         <form className={styles.register_form} onSubmit={registerNewItem}>
