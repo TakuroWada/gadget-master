@@ -2,11 +2,16 @@ import React, { useState } from "react";
 import styles from "../assets/scss/Register.module.scss";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
+import { selectApp } from "../features/appSlice";
+import { useDispatch } from "react-redux";
+import { loading, loaded } from "../features/appSlice";
 import { storage, db } from "../firebase";
 import firebase from "firebase/app";
 
 const Register: React.FC = () => {
   const user = useSelector(selectUser);
+  const app = useSelector(selectApp);
+  const dispatch = useDispatch();
   const [gadgetIcon, setGadgetIcon] = useState<File | null>(null);
   const [gadgetName, setGadgetName] = useState("");
   const [maker, setMaker] = useState("");
@@ -28,6 +33,7 @@ const Register: React.FC = () => {
   const registerNewItem = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    dispatch(loading());
     //アイコンが指定された場合
     if (gadgetIcon) {
       //登録ファイル名を一意にする処理
@@ -71,6 +77,7 @@ const Register: React.FC = () => {
                   details: details,
                   timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                 });
+              dispatch(loaded());
               alert("登録が完了しました");
             })
             .catch((error) => {
@@ -130,6 +137,7 @@ const Register: React.FC = () => {
 
   return (
     <>
+      {app.loading && <p className={styles.loading}>登録中...</p>}
       <div className={styles.register}>
         <h1 className={styles.title}>ガジェット新規登録</h1>
         <form className={styles.register_form} onSubmit={registerNewItem}>
