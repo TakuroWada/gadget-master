@@ -86,6 +86,11 @@ const RecommendedVideos: React.FC = () => {
               </div>
             ))}
       </div>
+      {!apiFlg && (
+        <p className={styles.message}>
+          1日の取得上限に達したため、ローカル動画を表示中
+        </p>
+      )}
     </div>
   );
 };
