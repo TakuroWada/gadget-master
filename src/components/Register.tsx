@@ -168,7 +168,7 @@ const Register: React.FC = () => {
               <label>ガジェット名</label>
               <input
                 className={styles.text_input}
-                placeholder="ガジェット名"
+                placeholder="例:iphone"
                 type="text"
                 value={gadgetName}
                 onChange={(e) => setGadgetName(e.target.value)}
@@ -179,7 +179,7 @@ const Register: React.FC = () => {
               <label>メーカー</label>
               <input
                 className={styles.text_input}
-                placeholder="メーカー"
+                placeholder="例:apple"
                 type="text"
                 value={maker}
                 onChange={(e) => setMaker(e.target.value)}
@@ -205,7 +205,7 @@ const Register: React.FC = () => {
               <label>値段</label>
               <input
                 className={styles.text_input}
-                placeholder="値段"
+                placeholder="例:80000"
                 type="number"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
@@ -216,7 +216,7 @@ const Register: React.FC = () => {
               <label>購入日</label>
               <input
                 className={styles.text_input}
-                placeholder="購入日"
+                placeholder="例:2020-12-01"
                 type="date"
                 value={purchaseDate}
                 onChange={(e) => setPurchaseDate(e.target.value)}
@@ -243,7 +243,6 @@ const Register: React.FC = () => {
             <label>詳細</label>
             <textarea
               className={styles.text_area}
-              placeholder="詳細"
               value={details}
               onChange={(e) => setDetails(e.target.value)}
             />
