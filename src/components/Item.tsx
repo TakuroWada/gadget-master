@@ -202,6 +202,7 @@ const Item: React.FC<PROPS> = (props) => {
 
       <Modal
         className={styles.modal}
+        overlayClassName={styles.overlay}
         isOpen={openModal}
         onRequestClose={() => {
           setOpenModal(false);

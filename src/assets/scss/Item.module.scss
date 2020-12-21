@@ -97,7 +97,7 @@
   padding: 1.6rem 2.4rem;
   max-width: 30rem;
   width: 100%;
-  border-radius: 1em;
+  border-radius: 1rem;
   transform: translate(-50%, -50%);
   outline: transparent;
   z-index: 2;
@@ -105,6 +105,16 @@
   @include tab {
     max-width: 60rem;
   }
+}
+
+.overlay {
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #fafafa88;
 }
 .modeal_flexbox {
   @include tab {
