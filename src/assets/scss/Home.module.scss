@@ -3,6 +3,7 @@
 .home {
   width: 100%;
   background-color: #edeeef;
+  min-height: 100vh;
 }
 
 .status_section {
@@ -16,27 +17,15 @@
 }
 
 .title {
-  font-size: 2rem;
+  width: 30rem;
+  margin: 0 auto;
+  padding: 0.4rem 0;
+  font-size: 1.8rem;
   font-weight: bold;
   text-align: center;
   color: #fafafa;
-
-  &::before {
-    position: relative;
-    top: 6px;
-    right: 16px;
-    content: "";
-    display: inline-block;
-    width: 1.6rem;
-    height: 2.4rem;
-    background: url(../images/ico_iphone1_6.gif) no-repeat;
-    background-size: contain;
-  }
-  &::after {
-    @extend .title::before;
-    right: 0;
-    left: 16px;
-  }
+  border: dotted 1px #fafafa;
+  border-radius: 0.4rem;
 
   @include tab {
     font-size: 2.4rem;
@@ -92,7 +81,7 @@
       font-size: 1.4rem;
       margin-top: 2.4rem;
       @include tab {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         margin-top: 3.2rem;
       }
     }
@@ -107,7 +96,7 @@
 
     & .price {
       font-family: "Press Start 2P", cursive;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       @include tab {
         font-size: 2rem;
       }
