@@ -1,44 +1,61 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# 1.概要
 
-## Available Scripts
+ガジェット好きのためのガジェット管理 Web アプリケーション「GadgetMaster」。
+所持中のもの、売却したもの、譲ったものなども含め自分の持っているガジェットを管理できる。
+登録の合計金額によって自分の肩書きが変化する。
+物欲を誘う最新ガジェット動画を YouTube から取得。
+収集癖のある人におすすめのアプリ。
+また、ついお金を使い過ぎてしまう人にも管理用としておすすめ。
+めざせガジェットマスター。
 
-In the project directory, you can run:
+# 2.実装済みの機能
 
-### `yarn start`
+- ガジェット情報の登録、閲覧、編集、削除、検索
+- 登録アイテムの合計金額の表示
+- 登録アイテムの内、現在所持中の合計金額の表示
+- 登録金額に応じて肩書きが変化
+- YouTube からおすすめのガジェット動画を取得して表示(最新のもの)
+- ログイン、ログアウト、ユーザー情報編集機能
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# 3.開発中の機能
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- 登録アイテムのより高度な検索
+- カテゴリやメーカーの所有率などをグラフで表示
+- 最新テクノロジーニュースの表示
+- テストコードの作成(学習中)
 
-### `yarn test`
+# 4.現状の課題
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Firebase を使用したので検索系が弱い。
+- 検索のバリエーションがない(完全一致のみ)
+- データを分析して表示などができていない
+- 登録データのバリデーションチェックが甘い
 
-### `yarn build`
+# 5. 開発環境
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- macOS Catalina 10.15.7
+- Docker 19.03.13
+- node 14.4.0
+- npm 6.14.4
+- git 2.24.3
+- node-sass 4.14.1
+- create-react-app
+- TypeScript 3.8.2
+- Redux-Toolkit 1.2.5
+- Firebase(Authenticaiotn CloudFirestore Storage Hosting)
+- react-router-dom 5.2.0
+- YouTube Data API Data V3
+- material-ui
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## コード管理
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- GitHub
 
-### `yarn eject`
+## 公開サーバー
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Firebase Hosting
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# 3. 設計方針
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- CSS 設計: CSS modules
+- レスポンシブ対応はモバイルファーストコーディング
