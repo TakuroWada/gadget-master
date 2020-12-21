@@ -92,12 +92,12 @@ const Home: React.FC = () => {
 
             <div className={styles.text_item}>
               <h3 className={styles.sub_title}>登録した総額</h3>
-              <p>¥{totalRegistrationAmount}</p>
+              <p className={styles.price}>¥{totalRegistrationAmount}</p>
             </div>
 
             <div className={styles.text_item}>
               <h3 className={styles.sub_title}>所持品の総額</h3>
-              <p>¥{totalPossessionAmount}</p>
+              <p className={styles.price}>¥{totalPossessionAmount}</p>
             </div>
           </div>
         </div>

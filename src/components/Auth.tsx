@@ -9,11 +9,10 @@ import { TextField, makeStyles, Modal, IconButton } from "@material-ui/core";
 
 //icon
 import SendIcon from "@material-ui/icons/Send";
-import CameraIcon from "../assets/images/camera.png";
-import SpIcon from "../assets/images/sp.png";
 import PcIcon from "../assets/images/pc.png";
-import TbIcon from "../assets/images/tablet.png";
 import MainTitle from "../assets/images/maintitle.png";
+import PeopleIcon2 from "../assets/images/bill_gates.gif";
+import PeopleIcon1 from "../assets/images/steve_jobs_2.gif";
 
 //モーダルスタイル
 function getModalStyle() {
@@ -132,10 +131,9 @@ const Auth: React.FC = () => {
           好きのための管理アプリです。
         </p>
         <div className={styles.chatch_images}>
-          <img src={SpIcon} alt="" />
-          <img src={PcIcon} alt="" />
-          <img src={CameraIcon} alt="" />
-          <img src={TbIcon} alt="" />
+          <img className={styles.people_images} src={PeopleIcon1} alt="" />
+          <img className={styles.gadget_images} src={PcIcon} alt="" />
+          <img className={styles.people_images} src={PeopleIcon2} alt="" />
         </div>
       </div>
 
@@ -219,7 +217,7 @@ const Auth: React.FC = () => {
             className={styles.button_demo}
             onClick={singInDemo}
           >
-            デモユーザーログイン
+            お試しログイン
           </button>
           <button
             type="button"

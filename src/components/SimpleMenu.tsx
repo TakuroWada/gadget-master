@@ -5,6 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
 import { auth } from "../firebase";
 import styles from "../assets/scss/SimpleMenu.module.scss";
+import MenuIcon from "../assets/images/menu.png";
 
 export default function SimpleMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -25,7 +26,7 @@ export default function SimpleMenu() {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        Menu
+        <img src={MenuIcon} className={styles.menu_icon} alt="menu" />
       </Button>
       <Menu
         className={styles.menu}

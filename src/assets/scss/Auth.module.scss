@@ -7,8 +7,11 @@
 }
 
 .chatch {
-  padding: 10rem 0.8rem 6rem 0.8rem;
+  padding: 4rem 0.8rem 2rem 0.8rem;
   background-color: #198eb9;
+  @include tab {
+    padding: 10rem 0.8rem 6rem 0.8rem;
+  }
 }
 
 .title {
@@ -34,18 +37,28 @@
   }
 }
 .chatch_images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: 30rem;
+  height: 8rem;
   margin: 4rem auto 0 auto;
   text-align: center;
   @include tab {
     max-width: 48rem;
   }
-  & img {
-    width: 4rem;
-    margin: 1.2rem;
+  & .gadget_images {
+    width: 4.8rem;
+    margin: 1.6rem 3.2rem;
+    transition: all 0.3s;
+
     @include tab {
       margin: 1.2rem 1.6rem;
     }
+  }
+
+  .people_images {
+    width: 6.4rem;
   }
 }
 
@@ -83,12 +96,12 @@
   width: 6.4rem;
   height: 6.4rem;
   border-radius: 50%;
-  background-color: #e76d09;
+  background-color: #aaa;
   color: #fafafa;
   border: solid 2px #fafafa;
 
   &:hover {
-    background-color: #ec9d26;
+    background-color: #ccc;
   }
 }
 .login_add_icon_loaded {
@@ -113,11 +126,17 @@
   width: 100%;
   text-align: left;
   padding: 0.8rem;
-  margin-top: 3.2rem;
+  margin-top: 1.6rem;
+  @include tab {
+    margin-top: 3.2rem;
+  }
 }
 
 .button_area {
-  margin-top: 6rem;
+  margin-top: 2rem;
+  @include tab {
+    margin-top: 6rem;
+  }
 }
 
 .submit_button {
@@ -165,10 +184,11 @@
 
 .button_demo {
   @extend .submit_button;
-  background-color: #14b141;
+  margin-top: 1.6rem;
+  background-color: #02af5e;
 
   &:hover {
-    background-color: #47ce6d;
+    background-color: #0ebb6a;
   }
 }
 

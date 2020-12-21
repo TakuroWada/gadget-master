@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import { storage } from "../firebase";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
+import { selectApp } from "../features/appSlice";
 import { useDispatch } from "react-redux";
 import { updateUserProfile } from "../features/userSlice";
+import { loading, loaded } from "../features/appSlice";
 import firebase from "firebase/app";
 import styles from "../assets/scss/Setting.module.scss";
 
 const Setting: React.FC = () => {
   const user = useSelector(selectUser);
+  const app = useSelector(selectApp);
   const dispatch = useDispatch();
   const [username, setUsername] = useState(user.displayName);
   const [avatarImage, setAvatarImage] = useState<File | null>(null);
@@ -25,6 +28,7 @@ const Setting: React.FC = () => {
     e.preventDefault();
     let loginUser = firebase.auth().currentUser;
     let url = user.photoUrl;
+    dispatch(loading());
 
     if (loginUser != null) {
       if (avatarImage) {
@@ -54,6 +58,7 @@ const Setting: React.FC = () => {
           photoUrl: url,
         })
       );
+      dispatch(loaded());
       alert("ユーザー情報を更新しました");
     } else {
       alert("エラー：ユーザー情報が取得できませんでした");
@@ -62,6 +67,12 @@ const Setting: React.FC = () => {
 
   return (
     <div className={styles.setting}>
+      {app.loading && (
+        <div className={styles.loading}>
+          <p>更新中...</p>
+          <img src={app.loadingImg} alt="icon" />
+        </div>
+      )}
       <h1 className={styles.title}>ユーザー設定</h1>
       <form className={styles.setting_form} onSubmit={updateLoginUser}>
         <label>
