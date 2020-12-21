@@ -87,7 +87,6 @@ const List: React.FC = memo(() => {
 
   if (searchFlg) {
     viewItems = searchItems;
-    console.log(viewItems);
   } else {
     viewItems = allItems;
   }
