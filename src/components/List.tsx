@@ -87,6 +87,7 @@ const List: React.FC = memo(() => {
 
   if (searchFlg) {
     viewItems = searchItems;
+    console.log(viewItems);
   } else {
     viewItems = allItems;
   }
@@ -108,22 +109,26 @@ const List: React.FC = memo(() => {
         ""
       )}
       <div className={styles.item_area}>
-        {viewItems.map((item) => (
-          <Item
-            key={item.itemId}
-            itemId={item.itemId}
-            gadgetIcon={item.gadgetIcon}
-            gadgetname={item.gadgetname}
-            maker={item.maker}
-            category={item.category}
-            price={item.price}
-            purchaseDate={item.purchaseDate}
-            possessionStatus={item.possessionStatus}
-            username={item.username}
-            details={item.details}
-            timestamp={item.timestamp}
-          />
-        ))}
+        {viewItems[0].itemId !== "" ? (
+          viewItems.map((item) => (
+            <Item
+              key={item.itemId}
+              itemId={item.itemId}
+              gadgetIcon={item.gadgetIcon}
+              gadgetname={item.gadgetname}
+              maker={item.maker}
+              category={item.category}
+              price={item.price}
+              purchaseDate={item.purchaseDate}
+              possessionStatus={item.possessionStatus}
+              username={item.username}
+              details={item.details}
+              timestamp={item.timestamp}
+            />
+          ))
+        ) : (
+          <p>結果がありません</p>
+        )}
       </div>
     </div>
   );
