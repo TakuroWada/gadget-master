@@ -12,6 +12,7 @@ import Setting from "./components/Setting";
 import Auth from "./components/Auth";
 import Header from "./components/Header";
 import RecommendedVideos from "./components/RecommendedVideos";
+import Footer from "./components/Footer";
 
 const App: React.FC = () => {
   const user = useSelector(selectUser);
@@ -57,6 +58,7 @@ const App: React.FC = () => {
               component={RecommendedVideos}
             />
             <Route exact path="/setting" component={Setting} />
+            <Footer />
           </div>
         ) : (
           <Auth />
