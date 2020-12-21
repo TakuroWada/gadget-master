@@ -39,6 +39,7 @@ const localVideos: VIDEOS[] = [
 
 const RecommendedVideos: React.FC = () => {
   const [videos, setVideos] = React.useState<any[]>([]);
+  const [apiFlg, setApiFlg] = React.useState(true);
   const keyword = "ガジェット + PC | カメラ | イヤホン | 最新 | スマホ";
 
   useEffect(() => {
@@ -50,6 +51,7 @@ const RecommendedVideos: React.FC = () => {
         setVideos(response.data.items);
       })
       .catch(() => {
+        setApiFlg(false);
         console.log("通信に失敗しました");
       });
   }, []);
@@ -60,7 +62,7 @@ const RecommendedVideos: React.FC = () => {
     <div className={styles.video}>
       <h1 className={styles.title}>おすすめガジェット動画</h1>
       <div className={styles.video_list}>
-        {videos !== []
+        {apiFlg
           ? videos.map((video) => (
               <div className={styles.video_card}>
                 <iframe
