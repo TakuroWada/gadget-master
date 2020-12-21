@@ -55,7 +55,7 @@
 
 - Firebase Hosting
 
-# 3. 設計方針
+# 6. 設計方針
 
 - CSS 設計: CSS modules
 - レスポンシブ対応はモバイルファーストコーディング
