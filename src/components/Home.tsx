@@ -77,7 +77,7 @@ const Home: React.FC = () => {
   return (
     <div className={styles.home}>
       <section className={styles.status_section}>
-        <h2 className={styles.title}>ステータス</h2>
+        <h2 className={styles.title}>Your Status</h2>
         <div className={styles.status_box}>
           <div className={styles.avatar_area}>
             <Avatar className={styles.avatar_img} src={user.photoUrl} />
