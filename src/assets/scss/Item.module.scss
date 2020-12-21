@@ -30,7 +30,6 @@
   line-height: 2rem;
   cursor: pointer;
   object-fit: cover;
-  //align-self: center;
 
   & img {
     display: inline-block;
@@ -101,6 +100,7 @@
   border-radius: 1em;
   transform: translate(-50%, -50%);
   outline: transparent;
+  z-index: 2;
 
   @include tab {
     max-width: 60rem;
@@ -133,6 +133,8 @@
   & img {
     display: inline-block;
     width: 100%;
+    min-height: 100%;
+    height: auto;
   }
 
   @include tab {
