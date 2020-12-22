@@ -13,6 +13,7 @@ import Auth from "./components/Auth";
 import Header from "./components/Header";
 import RecommendedVideos from "./components/RecommendedVideos";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App: React.FC = () => {
   const user = useSelector(selectUser);
@@ -46,23 +47,25 @@ const App: React.FC = () => {
   return (
     <>
       <Router>
-        {user.uid ? (
-          <div>
-            <Header />
-            <Route exact path="/" component={Home} />
-            <Route exact path="/list" component={List} />
-            <Route exact path="/register" component={Register} />
-            <Route
-              exact
-              path="/recommendedvideos"
-              component={RecommendedVideos}
-            />
-            <Route exact path="/setting" component={Setting} />
-            <Footer />
-          </div>
-        ) : (
-          <Auth />
-        )}
+        <ScrollToTop>
+          {user.uid ? (
+            <div>
+              <Header />
+              <Route exact path="/" component={Home} />
+              <Route exact path="/list" component={List} />
+              <Route exact path="/register" component={Register} />
+              <Route
+                exact
+                path="/recommendedvideos"
+                component={RecommendedVideos}
+              />
+              <Route exact path="/setting" component={Setting} />
+              <Footer />
+            </div>
+          ) : (
+            <Auth />
+          )}
+        </ScrollToTop>
       </Router>
     </>
   );
