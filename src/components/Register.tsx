@@ -115,30 +115,6 @@ const Register: React.FC = () => {
     setDetails("");
   };
 
-  const categoryList = [
-    "スマートフォン",
-    "タブレット",
-    "スマホ周辺機器",
-    "PC",
-    "キーボード",
-    "マウス",
-    "ディスプレイ",
-    "その他PC周辺機器",
-    "イヤホン",
-    "ヘッドホン",
-    "スピーカー",
-    "マイク",
-    "スマートウォッチ",
-    "カメラ",
-    "レンズ",
-    "その他カメラ周辺機器",
-    "ケーブル類",
-    "その他周辺機器",
-    "その他",
-  ];
-
-  const possessionStatusList = ["所持中", "売却済", "譲渡済", "なくした"];
-
   return (
     <>
       {app.loading && (
@@ -195,7 +171,7 @@ const Register: React.FC = () => {
                 <option hidden value="未設定">
                   カテゴリーを選択 ▼
                 </option>
-                {categoryList.map((item) => (
+                {app.categoryList.map((item) => (
                   <option value={item}>{item}</option>
                 ))}
               </select>
@@ -232,7 +208,7 @@ const Register: React.FC = () => {
                 <option hidden value="未設定">
                   状況を選択 ▼
                 </option>
-                {possessionStatusList.map((item) => (
+                {app.possessionStatusList.map((item) => (
                   <option value={item}>{item}</option>
                 ))}
               </select>

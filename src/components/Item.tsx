@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "../assets/scss/Item.module.scss";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
+import { selectApp } from "../features/appSlice";
 import { storage, db } from "../firebase";
 import firebase from "firebase/app";
 import Modal from "react-modal";
@@ -25,6 +26,7 @@ Modal.setAppElement("#root");
 
 const Item: React.FC<PROPS> = (props) => {
   const user = useSelector(selectUser);
+  const app = useSelector(selectApp);
   const [openModal, setOpenModal] = React.useState(false);
   const [gadgetIcon, setGadgetIcon] = useState<File | null>(null);
   const [gadgetName, setGadgetName] = useState(props.gadgetname);
@@ -146,30 +148,6 @@ const Item: React.FC<PROPS> = (props) => {
     setDetails(props.details);
   };
 
-  const categoryList = [
-    "スマートフォン",
-    "タブレット",
-    "スマホ周辺機器",
-    "PC",
-    "キーボード",
-    "マウス",
-    "ディスプレイ",
-    "その他PC周辺機器",
-    "イヤホン",
-    "ヘッドホン",
-    "スピーカー",
-    "マイク",
-    "スマートウォッチ",
-    "カメラ",
-    "レンズ",
-    "その他カメラ周辺機器",
-    "ケーブル類",
-    "その他周辺機器",
-    "その他",
-  ];
-
-  const possessionStatusList = ["所持中", "売却済", "譲渡済", "なくした"];
-
   return (
     <div className={styles.item_card}>
       <div className={styles.item_icon}>
@@ -249,7 +227,7 @@ const Item: React.FC<PROPS> = (props) => {
                 <label>カテゴリー</label>
                 <select onChange={(e) => setCategory(e.target.value)}>
                   <option value={category}>{category}</option>
-                  {categoryList.map((item) => (
+                  {app.categoryList.map((item) => (
                     <option value={item}>{item}</option>
                   ))}
                 </select>
@@ -268,7 +246,7 @@ const Item: React.FC<PROPS> = (props) => {
                 <label>所持状況</label>
                 <select onChange={(e) => setPossessionStatus(e.target.value)}>
                   <option value={possessionStatus}>{possessionStatus}</option>
-                  {possessionStatusList.map((item) => (
+                  {app.possessionStatusList.map((item) => (
                     <option value={item}>{item}</option>
                   ))}
                 </select>
