@@ -7,7 +7,7 @@ import { storage, db } from "../firebase";
 import firebase from "firebase/app";
 import Modal from "react-modal";
 import DefaultIcon from "../assets/images/default_icon.gif";
-
+import { useForm, SubmitHandler } from "react-hook-form";
 interface PROPS {
   itemId: string;
   gadgetIcon: string;
@@ -22,11 +22,23 @@ interface PROPS {
   timestamp: any;
 }
 
+type FormValues = {
+  gadgetIcon: File;
+  gadgetname: String;
+  maker: String;
+  category: String;
+  price: String;
+  purchaseDate: String;
+  possessionStatus: String;
+  details: String;
+};
+
 Modal.setAppElement("#root");
 
 const Item: React.FC<PROPS> = (props) => {
   const user = useSelector(selectUser);
   const app = useSelector(selectApp);
+  const { register, handleSubmit, errors, reset } = useForm();
   const [openModal, setOpenModal] = React.useState(false);
   const [gadgetIcon, setGadgetIcon] = useState<File | null>(null);
   const [gadgetName, setGadgetName] = useState(props.gadgetname);
@@ -57,9 +69,7 @@ const Item: React.FC<PROPS> = (props) => {
     }
   };
 
-  const editItem = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
+  const editItem: SubmitHandler<FormValues> = (data: FormValues) => {
     //アイコンが指定された場合
     if (gadgetIcon) {
       //登録ファイル名を一意にする処理
@@ -184,10 +194,11 @@ const Item: React.FC<PROPS> = (props) => {
         isOpen={openModal}
         onRequestClose={() => {
           setOpenModal(false);
+          reset();
           resetInputField();
         }}
       >
-        <form onSubmit={editItem}>
+        <form onSubmit={handleSubmit(editItem)}>
           <label className={styles.icon_area}>
             <div className={styles.modal_icon}>
               {gadgetIcon ? (
@@ -208,24 +219,53 @@ const Item: React.FC<PROPS> = (props) => {
           <input
             type="text"
             className={styles.modal_title}
+            name="gadgetName"
+            ref={register({
+              required: "ガジェット名は必須項目です。",
+              maxLength: {
+                value: 20,
+                message: "20文字以内で指定してください",
+              },
+            })}
             value={gadgetName}
             onChange={(e) => setGadgetName(e.target.value)}
           />
+          {errors.gadgetName && (
+            <span className={styles.error_message}>
+              {errors.gadgetName.message}
+            </span>
+          )}
 
           <div className={styles.modeal_flexbox}>
             <div className={styles.modal_input_area}>
               <div className={styles.modal_input}>
                 <label>メーカー</label>
                 <input
+                  name="maker"
+                  ref={register({
+                    required: "メーカー名は必須項目です。",
+                    maxLength: {
+                      value: 10,
+                      message: "10文字以内で指定してください",
+                    },
+                  })}
                   type="text"
                   value={maker}
                   onChange={(e) => setMaker(e.target.value)}
                 />
+                {errors.maker && (
+                  <span className={styles.error_message}>
+                    {errors.maker.message}
+                  </span>
+                )}
               </div>
 
               <div className={styles.modal_input}>
                 <label>カテゴリー</label>
-                <select onChange={(e) => setCategory(e.target.value)}>
+                <select
+                  name="category"
+                  onChange={(e) => setCategory(e.target.value)}
+                >
                   <option value={category}>{category}</option>
                   {app.categoryList.map((item) => (
                     <option value={item}>{item}</option>
@@ -236,15 +276,31 @@ const Item: React.FC<PROPS> = (props) => {
               <div className={styles.modal_input}>
                 <label>値段</label>
                 <input
+                  name="price"
+                  ref={register({
+                    required: "値段は必須項目です。",
+                    maxLength: {
+                      value: 10,
+                      message: "10文字以内で指定してください",
+                    },
+                  })}
                   type="number"
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
                 />
+                {errors.price && (
+                  <span className={styles.error_message}>
+                    {errors.price.message}
+                  </span>
+                )}
               </div>
 
               <div className={styles.modal_input}>
                 <label>所持状況</label>
-                <select onChange={(e) => setPossessionStatus(e.target.value)}>
+                <select
+                  name="possessionStatus"
+                  onChange={(e) => setPossessionStatus(e.target.value)}
+                >
                   <option value={possessionStatus}>{possessionStatus}</option>
                   {app.possessionStatusList.map((item) => (
                     <option value={item}>{item}</option>
@@ -255,19 +311,38 @@ const Item: React.FC<PROPS> = (props) => {
               <div className={styles.modal_input}>
                 <label>購入日</label>
                 <input
+                  name="purchaseDate"
+                  ref={register({ required: "購入日は必須項目です。" })}
                   type="date"
                   value={purchaseDate}
                   onChange={(e) => setPurchaseDate(e.target.value)}
                 />
+                {errors.purchaseDate && (
+                  <span className={styles.error_message}>
+                    {errors.purchaseDate.message}
+                  </span>
+                )}
               </div>
             </div>
 
             <div className={styles.modal_details}>
               <label>詳細</label>
               <textarea
+                name="datails"
+                ref={register({
+                  maxLength: {
+                    value: 50,
+                    message: "50文字以内で指定してください",
+                  },
+                })}
                 value={details}
                 onChange={(e) => setDetails(e.target.value)}
               />
+              {errors.datails && (
+                <span className={styles.error_message}>
+                  {errors.datails.message}
+                </span>
+              )}
             </div>
           </div>
 
@@ -292,6 +367,7 @@ const Item: React.FC<PROPS> = (props) => {
           type="button"
           onClick={() => {
             setOpenModal(false);
+            reset();
             resetInputField();
           }}
         >
